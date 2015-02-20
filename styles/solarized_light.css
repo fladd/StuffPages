@@ -1,0 +1,21 @@
+@import url("http://thomasf.github.io/solarized-css/solarized-light.min.css");
+
+body {
+  padding-top: 0;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+tr td p:first-child {
+  margin-top: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+div.footnotes {
+  padding-top: 1em;
+}
