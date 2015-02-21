@@ -9,7 +9,7 @@ Installation
 
 1. Make sure [Python 2][] is installed on your web server
 2. Install the Python package [Markdown2][] on your web server
-3. Download the [.zip][] and extract it in a (non-served) directory on your web server
+3. Download the source .zip from the [release page][] and extract it in a (non-served) directory on your web server
 
 
 Usage
@@ -34,4 +34,4 @@ Usage
 [Markdown]: http://daringfireball.net/projects/markdown/
 [Python 2]: http://www.python.org
 [Markdown2]: https://github.com/trentm/python-markdown2
-[.zip]: https://github.com/fladd/StuffPages/archive/master.zip
+[release page]: https://github.com/fladd/StuffPages/releases/latest
