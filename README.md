@@ -19,7 +19,7 @@ Usage
 
   * `markdown_dir` is where your markdown pages (.md files) are located
   * `extras` is a dictionary with additional modules to be used by the [Markdown2][] Python package
-  * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file
+  * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file:
     * `output_dir` is where your web pages (.html files) will be written to
     * `url` is the URL from which the web page will be served from
     * `title` is the default title for web pages
