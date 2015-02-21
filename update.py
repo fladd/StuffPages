@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+_version_ = 0.1.0
+
+
 import os
 import subprocess
 import shutil
