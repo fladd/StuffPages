@@ -36,7 +36,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     if os.path.exists(os.path.expanduser(_defaults["favicon"])):
         shutil.copy(os.path.expanduser(_defaults["favicon"]),
                     os.path.expanduser(htmldir))
-        favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(os.path.join(_default["url"], os.path.split(defauts["favicon"])[-1])
+        favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(os.path.split(defauts["favicon"])[-1])
     elif _defaults["favicon"].startswith("http"):
         favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(_defaults["favicon"])
     else:
