@@ -36,7 +36,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     if os.path.exists(os.path.expanduser(_defaults["favicon"])):
         shutil.copy(os.path.expanduser(_defaults["favicon"]),
                     os.path.expanduser(htmldir))
-        favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(os.path.join(_default["url"], os.path.split(defauts["favicon"])[-1]))
+        favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(os.path.join(_default["url"], os.path.split(defauts["favicon"])[-1])
     elif _defaults["favicon"].startswith("http"):
         favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(_defaults["favicon"])
     else:
@@ -44,7 +44,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     if os.path.exists(os.path.expanduser(_defaults["style"])):
         shutil.copy(os.path.expanduser(_defaults["style"]),
                     os.path.expanduser(htmldir))
-        css_link = '<link href="{0}" rel="stylesheet"></link>'.format(os.path.join(_defaults["url"], os.path.split(_defaults["style"])[-1]))
+        css_link = '<link href="{0}" rel="stylesheet"></link>'.format(os.path.split(_defaults["style"])[-1])
     elif defaults["style"].startswith("http"):
         css_link = '<link href="{0}" rel="stylesheet"></link>'.format(_defaults["style"])
     else:
