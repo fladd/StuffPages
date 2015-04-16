@@ -1,13 +1,11 @@
 StuffPages
 ==========
 
-A quick way to create simple web pages with [Markdown][]
-
 
 Installation
 ------------
 
-1. Make sure [Python][][^python2] is installed on your web server
+1. Make sure [Python2][] is installed on your web server
 2. Install the Python package [Markdown][markdown-python] on your web server
 3. Download the source .zip from the [release page][] and extract it in a (non-served) directory on your web server
 
@@ -27,10 +25,9 @@ Usage
 2. Create Markdown pages (.md files) in your `markdown_dir`
 3. Run `python update.py` to create corresponding web pages (.html files) in the `output_dir`, that will be served at `url`
 
-[^python2]: Only tested with Python 2!
 
 [StuffPages]: https://github.com/fladd/StuffPages/
 [Markdown]: http://daringfireball.net/projects/markdown/
-[Python]: http://www.python.org
+[Python2]: http://www.python.org
 [markdown-python]: https://pythonhosted.org/Markdown/
 [release page]: https://github.com/fladd/StuffPages/releases/latest
