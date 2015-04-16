@@ -1,16 +1,17 @@
-# The directory in wich the source markdown (.md) files are located 
+# The directory in which the source markdown (.md) files are located
 markdown_dir = "examples" 
  
 # Additional 'extras' to be used by the Python 'markdown2' package 
-extras = ['headers-id', 
-          'footnotes',
-          'fenced-code-blocks',
+extras = ['markdown.extensions.extra',
+          'markdown.extensions.headerid',
+          'markdown.extensions.codehilite',
           ]
  
 # Default settings (can be overwritten by meta data) 
-defaults = {"output_dir" : "~/public_html/stuff/",
+defaults = {"output_dir" : "~/Desktop/",
                    "url" : "http://www.example.com",
                  "title" : "A StuffPages page", 
                "favicon" : "http://www.example.com/favicon", 
-                 "style" : "styles/solarized_dark.css", 
+                 "style" : "styles/cayman.css",
+                 "font" : "http://fonts.googleapis.com/css?family=Open+Sans:400,700"
            }
