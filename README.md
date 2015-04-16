@@ -1,5 +1,5 @@
-StuffPages
-==========
+Stuff Pages
+===========
 
 
 Installation
