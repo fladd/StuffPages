@@ -6,10 +6,11 @@ _version_ = "0.3.0"
 import os
 import re
 import shutil
+from datetime import datetime
 from glob import glob
 import sys; sys.dont_write_bytecode = True
 
-from markdown import markdown, Markdown
+from markdown import Markdown
 
 from config import markdown_dir, extras, defaults
 
@@ -27,11 +28,13 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
 
     # Handle meta data
     meta = ""
+    _metas = {}
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
-            if m.lower() in ["output_dir", "url", "title", "favicon", "style"]:
-                _defaults[m.lower()] = " ".join(md.Meta[m])
+            if m in ["output_dir", "url", "title", "favicon", "style", "settings"]:
+                _defaults[m] = " ".join(md.Meta[m])
             else:
+                _metas[m] = " ".join(md.Meta[m])
                 meta += '<meta name="{0}" content="{1}">\n'.format(
                     m.lower(), " ".join(md.Meta[m]))
     htmldir = os.path.join(os.path.expanduser(_defaults["output_dir"]),
@@ -51,6 +54,8 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     else:
         favicon_link = ""
     theme_credits = ""
+    if os.path.exists(os.path.expanduser(os.path.join("styles", _defaults["style"] + ".css"))):
+        _defaults['style'] = os.path.join("styles", _defaults["style"] + ".css")
     if os.path.exists(os.path.expanduser(_defaults["style"])):
         with open(os.path.expanduser(_defaults["style"])) as f:
             first_line = f.readline()
@@ -69,22 +74,35 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
         css_link = ""
 
     # Handle header
-    header_pattern = re.compile(r".*?(<header>(.*?)</header>).*?", re.M | re.S)
-    header_match = header_pattern.match(html)
-    if header_match:
-        header = "<header>\n" + header_match.group(2) + "</header>"
-        html = html.replace(header_match.group(1), "")
-    else:
+    if "noheader" in _defaults["settings"]:
         header = ""
+    else:
+        header_pattern = re.compile(r".*?(<header>(.*?)</header>).*?", re.M | re.S)
+        header_match = header_pattern.match(html)
+        if header_match:
+            header = "<header>" + header_match.group(2) + "</header>"
+            html = html.replace(header_match.group(1), "")
+        else:
+            header = "<header>\n<h1>" + _defaults["title"] + "</h1>"
+            if "description" in _metas.keys():
+                header += "\n<p>" +_metas["description"] + "<p>"
+            header += "\n</header>"
 
     # Handle footer
-    footer_pattern = re.compile(r".*?(<footer>(.*?)</footer>).*?", re.M | re.S)
-    footer_match = footer_pattern.match(html)
-    if footer_match:
-        footer = "<footer>\n" + footer_match.group(2) + "\n" + theme_credits + "\n</footer>"
-        html = html.replace(footer_match.group(1), "")
+    if "nofooter" in _defaults["settings"]:
+        footer = ""
     else:
-        footer = "<footer>/n{0}</footer>".format(theme_credits)
+        footer_pattern = re.compile(r".*?(<footer>(.*?)</footer>).*?", re.M | re.S)
+        footer_match = footer_pattern.match(html)
+        if footer_match:
+            footer = "<footer>" + footer_match.group(2) + "\n" + theme_credits + "\n</footer>"
+            html = html.replace(footer_match.group(1), "")
+        else:
+            footer = "<footer>"
+            if "author" in _metas.keys():
+                footer += "\n<p><strong>&copy;" + repr(datetime.now().year) + \
+                          " " + _metas["author"] + "</strong></p>"
+            footer += "\n" + theme_credits + "\n</footer>"
 
     # Put everything together
     content = \
@@ -100,7 +118,9 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
 <body>
 {4}
 <section>
+<main>
 {5}
+</main>
 {6}
 </section>
 </body>

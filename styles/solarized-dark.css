@@ -1,0 +1,49 @@
+/* Created with [Stuff Pages](http://fladd.github.com/StuffPages). Design based on [Solarized CSS](http://thomasf.github.io/solarized-css/) by [Thomas Froessman](http://thomas.jossystem.se/).*/
+@import url("http://thomasf.github.io/solarized-css/solarized-dark.min.css");
+
+body {
+  padding-top: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+.footnote {
+  margin-top: 3em;
+}
+
+hr { display: block; height: 1px;
+    border: 0; border-top: 1px solid;
+    margin: 1em 0; padding: 0;
+    border-color: inherit;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 2em;
+  border-bottom: solid 1px;
+}
+
+header h1 {
+  color: #268bd2;
+  font-size: 3.4em;
+}
+
+header h2, h3, h4, h5 {
+  color: #6c71c4
+}
+
+header p {
+  color: #;
+  font-size: 1.2em;
+}
+
+footer {
+  margin-top: 3em;
+  border-top: solid 1px;
+}
+
+.theme-credits {
+  color: #819198;
+}

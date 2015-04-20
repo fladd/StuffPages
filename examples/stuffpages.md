@@ -2,21 +2,14 @@ Title: Stuff Pages
 Author: Florian Krause
 Description: A quick way to create simple web pages using Markdown
 
-<header markdown=1>
-#Stuff Pages
-##A quick way to create simple web pages using Markdown
-</header>
-
-Installation
-------------
+#Installation
 
 1. Make sure [Python][][^python2] is installed on your web server
 2. Install the Python package [Markdown][markdown-python] on your web server
 3. Download the source .zip from the [release page][] and extract it in a (non-served) directory on your web server
 
 
-Usage
------
+#Usage
 
 1. Adapt the `config.py` file according to your settings:
     * `markdown_dir` is where your markdown pages (.md files) are located
@@ -37,7 +30,3 @@ Usage
 [Python]: http://www.python.org
 [markdown-python]: https://pythonhosted.org/Markdown/
 [release page]: https://github.com/fladd/StuffPages/releases/latest
-
-<footer markdown=1>
-**&copy;2015 Florian Krause**
-</footer>
