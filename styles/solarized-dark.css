@@ -30,7 +30,7 @@ header h1 {
   font-size: 3.4em;
 }
 
-header h2, h3, h4, h5 {
+header h2, header h3, header h4, header h5 {
   color: #6c71c4
 }
 
