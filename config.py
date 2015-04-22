@@ -11,7 +11,7 @@ extras = ['markdown.extensions.extra',
 defaults = {"output_dir" : "~/Desktop/",
                    "url" : "http://www.example.com",
                  "title" : "A StuffPages page", 
-               "favicon" : "http://www.example.com/favicon", 
+               "favicon" : "http://www.example.com/favicon.ico",
                  "style" : "styles/cayman.css",
                "settings": ""
            }
