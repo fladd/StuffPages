@@ -2,7 +2,7 @@ Installation
 ------------
 
 1. Make sure [Python 2][] is installed on your web server
-2. Install the Python package [Markdown][markdown-python] on your web server (and optionally Pygments][] for code highlighting)
+2. Install the Python package [Markdown][markdown-python] on your web server (and optionally [Pygments][] for code highlighting)
 3. Download the source .zip from the [release page][] and extract it in a (non-served) directory on your web server
 
 
