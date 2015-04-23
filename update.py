@@ -65,10 +65,10 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
                 theme_credits = theme_credits.replace("<p>", "<p class='theme-credits'>")
         shutil.copy(os.path.expanduser(_defaults["style"]),
                     os.path.expanduser(htmldir))
-        css_link = '<link href="{0}" rel="stylesheet" media="screen"></link>'.format(
+        css_link = '<link href="{0}" rel="stylesheet" media="screen">'.format(
             os.path.split(_defaults["style"])[-1])
     elif defaults["style"].startswith("http"):
-        css_link = '<link href="{0}" rel="stylesheet" media="screen"></link>'.format(
+        css_link = '<link href="{0}" rel="stylesheet" media="screen">'.format(
             _defaults["style"])
     else:
         css_link = ""
