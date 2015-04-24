@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-_version_ = "0.3.4"
+_version_ = "0.3.5"
 
 
 import os
@@ -53,7 +53,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             _defaults["favicon"])
     else:
         favicon_link = ""
-    theme_credits = ""
+    page_credits = "Created with [Stuff Pages](http://stuff.fladd.de/stuffpages). "
     if os.path.exists(os.path.expanduser(os.path.join("styles", _defaults["style"] + ".css"))):
         _defaults['style'] = os.path.join("styles", _defaults["style"] + ".css")
     if os.path.exists(os.path.expanduser(_defaults["style"])):
@@ -61,8 +61,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             first_line = f.readline()
             if first_line.startswith("/*"):
                 first_line = first_line.lstrip("/*").rstrip("*/\n")
-                theme_credits = Markdown().convert(first_line)
-                theme_credits = theme_credits.replace("<p>", "<p class='theme-credits'>")
+                page_credits += first_line
         shutil.copy(os.path.expanduser(_defaults["style"]),
                     os.path.expanduser(htmldir))
         css_link = '<link href="{0}" rel="stylesheet" media="screen"></link>'.format(
@@ -92,17 +91,18 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     if "nofooter" in _defaults["settings"]:
         footer = ""
     else:
+        page_credits = Markdown().convert(page_credits).replace("<p>", "<p class='page-credits'>")
         footer_pattern = re.compile(r".*?(<footer>(.*?)</footer>).*?", re.M | re.S)
         footer_match = footer_pattern.match(html)
         if footer_match:
-            footer = "<footer>" + footer_match.group(2) + "\n" + theme_credits + "\n</footer>"
+            footer = "<footer>" + footer_match.group(2) + "\n" + page_credits + "\n</footer>"
             html = html.replace(footer_match.group(1), "")
         else:
             footer = "<footer>"
             if "author" in _metas.keys():
                 footer += "\n<p><strong>&copy;" + repr(datetime.now().year) + \
                           " " + _metas["author"] + "</strong></p>"
-            footer += "\n" + theme_credits + "\n</footer>"
+            footer += "\n" + page_credits + "\n</footer>"
 
     # Put everything together
     content = \
