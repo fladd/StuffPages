@@ -5,7 +5,7 @@ Description: A quick way to create simple web pages using Markdown
 #Installation
 
 1. Make sure [Python][][^python2] is installed on your web server
-2. Install the Python package [Markdown][markdown-python] on your web server
+2. Install the Python package [Markdown][markdown-python] on your web server (and optionally [Pygments][] for code highlighting)
 3. Download the source .zip from the [release page][] and extract it in a (non-served) directory on your web server
 
 
@@ -33,3 +33,4 @@ Description: A quick way to create simple web pages using Markdown
 [Python]: http://www.python.org
 [markdown-python]: https://pythonhosted.org/Markdown/
 [release page]: https://github.com/fladd/StuffPages/releases/latest
+[Pygments]: http://pygments.org
