@@ -27,7 +27,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     html = md.convert(text)
 
     # Handle meta data
-    meta = "<meta name="viewport" content="width=device-width, initial-scale=1">\n"
+    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
     _metas = {}
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
