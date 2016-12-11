@@ -31,7 +31,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     _metas = {}
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
-            if m in ["output_dir", "url", "title", "favicon", "style", "settings"]:
+            if m in ["output_dir", "title", "favicon", "style", "settings"]:
                 _defaults[m] = " ".join(md.Meta[m])
             else:
                 _metas[m] = " ".join(md.Meta[m])
