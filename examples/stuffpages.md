@@ -1,6 +1,8 @@
+---
 Title: StuffPages
 Author: Florian Krause
 Description: A quick way to create simple web pages using Markdown
+---
 
 
 Introduction 
