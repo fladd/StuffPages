@@ -5,7 +5,7 @@ markdown_dir = "examples"
 extras = ['markdown.extensions.toc',
           'markdown.extensions.codehilite',
           'pymdownx.extra',
-          'pymdownx.github',
+          'pymdownx.github'
           ]
 
 extras_configs = {'markdown.extensions.toc': {
