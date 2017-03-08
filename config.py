@@ -4,7 +4,7 @@ markdown_dir = "examples"
 # Additional 'extras' to be used by the Python 'markdown' package
 extras = ['markdown.extensions.toc',
           'markdown.extensions.codehilite',
-          'pymdownx.extra'
+          'pymdownx.extra',
           'pymdownx.github',
           ]
 
