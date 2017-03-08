@@ -88,23 +88,23 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 # Lists
 
-(In this example, leading and trailing spaces are shown with with dots: â‹…)
+(In this example, leading and trailing spaces are shown with with dots: ⋅)
 
 ```
 Ordered list:
 
 1. First ordered list item
 2. Another item
-â‹…â‹…* Unordered sub-list.
+⋅⋅* Unordered sub-list.
 1. Actual numbers don't matter, just that it's a number
-â‹…â‹…1. Ordered sub-list
+⋅⋅1. Ordered sub-list
 4. And another item.
 
-â‹…â‹…â‹…You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-â‹…â‹…â‹…To have a line break without a paragraph, you will need to use two trailing spaces.â‹…â‹…
-â‹…â‹…â‹…Note that this line is separate, but within the same paragraph.â‹…â‹…
-â‹…â‹…â‹…(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 Unordered list:
 
