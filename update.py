@@ -85,7 +85,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
         else:
             header = "<header>\n<h1>" + _defaults["title"] + "</h1>"
             if "description" in _metas.keys():
-                header += "\n<p>" +_metas["description"] + "<p>"
+                header += "\n<p>" +_metas["description"] + "</p>"
             header += "\n</header>"
 
     # Handle footer
