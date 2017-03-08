@@ -528,8 +528,24 @@ body {
   padding-top: 0;
 }
 
+a.headerlink {
+  color: #fdf6e3;
+  font-size: 0.75em;
+  font-weight: 300;
+  margin-left: 0.3em;
+}
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink {
+  color: #b58900;
+}
+
 img {
   vertical-align: bottom;
+  max-width: 100%;
 }
 
 .footnote {
@@ -573,3 +589,52 @@ footer {
 
 td.code {
   width: 100% ;}
+
+dl {
+    padding: 0;
+}
+
+dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th,
+table td {
+    padding: 6px 13px;
+    border: 1px solid #657b83;
+}
+
+table tr {
+    border-top: 1px solid #657b83;
+}
+
+table tr:nth-child(2n) {
+    background-color: #eee8d5;
+
+}
