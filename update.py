@@ -6,6 +6,7 @@ _version_ = "0.3.6"
 import os
 import re
 import shutil
+import codecs
 from datetime import datetime
 from glob import glob
 import sys; sys.dont_write_bytecode = True
@@ -21,7 +22,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     # Read in content and convert to markdown
     _defaults = defaults.copy()
     root, ext = os.path.splitext(filename)
-    with open(filename) as f:
+    with codecs.open(filename, encoding='utf-8) as f:
         text = f.read()
     md = Markdown(extensions=['markdown.extensions.meta'] + extras)
     html = md.convert(text)
@@ -106,7 +107,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
 
     # Put everything together
     content = \
-"""<!DOCTYPE html>
+u"""<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -125,5 +126,5 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
 </section>
 </body>
 </html>""".format(title, meta.rstrip("\n"), favicon_link, css_link, header, html, footer)
-    with open(outfile, 'w') as f:
+    with codecs.open(outfile, encoding='utf-8', mode='w') as f:
         f.write(content)
