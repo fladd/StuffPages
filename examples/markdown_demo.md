@@ -2,7 +2,7 @@ Title: Markdown Demo
 Description: An example page to showcase <i>StuffPages</i>
 Author: Florian Krause
 Style: styles/default.css
-
+---
 
 **Table of Contents:**
 
