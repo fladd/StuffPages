@@ -13,7 +13,7 @@ import sys; sys.dont_write_bytecode = True
 
 from markdown import Markdown
 
-from config import markdown_dir, extras, defaults
+from config import markdown_dir, extras, extras_configs, defaults
 
 
 # Loop over all files in markdown directory
