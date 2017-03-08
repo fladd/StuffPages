@@ -54,7 +54,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             _defaults["favicon"])
     else:
         favicon_link = ""
-    page_credits = "Created with [Stuff Pages](https://github.com/fladd/StuffPages). "
+    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages). "
     if os.path.exists(os.path.expanduser(os.path.join("styles", _defaults["style"] + ".css"))):
         _defaults['style'] = os.path.join("styles", _defaults["style"] + ".css")
     if os.path.exists(os.path.expanduser(_defaults["style"])):
