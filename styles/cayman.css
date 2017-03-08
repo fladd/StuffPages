@@ -794,6 +794,20 @@ section h1, section h2, section h3, section h4, section h5, section h6 {
   margin-bottom: 1rem;
   font-weight: normal;
   color: #159957; }
+a.headerlink {
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: 300;
+  margin-left: 0.3em;
+}
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink {
+  color: #4078c0;
+}
 section p {
   margin-bottom: 1em; }
 section code {
