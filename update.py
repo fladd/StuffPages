@@ -22,7 +22,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     # Read in content and convert to markdown
     _defaults = defaults.copy()
     root, ext = os.path.splitext(filename)
-    with codecs.open(filename, encoding='utf-8) as f:
+    with codecs.open(filename, encoding='utf-8') as f:
         text = f.read()
     md = Markdown(extensions=['markdown.extensions.meta'] + extras)
     html = md.convert(text)
