@@ -24,7 +24,8 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     root, ext = os.path.splitext(filename)
     with codecs.open(filename, encoding='utf-8') as f:
         text = f.read()
-    md = Markdown(extensions=['markdown.extensions.meta'] + extras)
+    md = Markdown(extensions=['markdown.extensions.meta'] + extras,
+                  extension_configs=extras_configs)
     html = md.convert(text)
 
     # Handle meta data
