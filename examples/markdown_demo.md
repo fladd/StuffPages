@@ -23,7 +23,7 @@ Style: styles/default.css
 - [Task Lists](#task-lists)
 - [Emoji](#emoji)
 - [Inline HTML](#inline-html)
-- [Extensions](#extension)
+- [Extensions](#extensions)
 
 
 # Introduction
@@ -377,6 +377,8 @@ This line is only separated by a single newline, so it's a separate line in the 
 ```
 Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include Markdown itself[^3].
 
+Footnotes will be shown at the bottom of the page, or (if present) at this marker:
+
 ///Footnotes Go Here///
 
 [^1]: This is a footnote content.
@@ -395,6 +397,8 @@ Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include 
 ```
 
 Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include Markdown itself[^3].
+
+Footnotes will be shown at the bottom of the page, or (if present) at this marker:
 
 ///Footnotes Go Here///
 
