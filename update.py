@@ -101,7 +101,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             footer = "<footer>"
             if "author" in _metas.keys():
                 author = _metas["author"]
-                if "author_link" in _metas.keys():
+                if "author_link" in _metas.keys() and _metas["author_link"]:
                     author = '<a href="{0}">{1}</a>'.format(_metas["author_link"], author)
                 footer += "\n<p><strong>&copy;" + repr(datetime.now().year) + \
                           " " + author + "</strong></p>"
