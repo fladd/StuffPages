@@ -2,15 +2,17 @@ import pymdownx.emoji
 
 
 # The directory in which the source markdown (.md) files are located
-markdown_dir = "examples" 
+markdown_dir = "pages" 
 
 # Default settings (can be overwritten by meta data) 
 defaults = {
-    "output_dir" : "~/Desktop/",     # The output directory
-    "title" : "A StuffPages page",   # The default page title
-    "favicon" : "",                  # Link to Favicon file
-    "style" : "styles/default.css",  # The default style
-    "settings": ""                   # Additional settings (noheader/nofooter)
+    "output_dir" : "~/public_html/stuff/pages",  # Output directory
+    "style" :      "styles/default.css",         # Default style
+    "author":      "Florian Krause",             # Default author
+    "author_link": "http://www.fladd.de",        # Default author link
+    "title" :      "A StuffPages page",          # Default page title
+    "favicon" :    "",                           # Default link to Favicon file
+    "settings":    ""
 }
 
 # Additional 'extras' to be used by the Python 'markdown' package
@@ -24,7 +26,7 @@ extras = ['markdown.extensions.codehilite',  # Syntax highlighting for code bloc
           'pymdownx.magiclink',              # Generate links from raw URLs
           'pymdownx.superfences',            # Fenced Code Blocks
           'pymdownx.tasklist',               # Task Lists
-          'pymdownx.tilde',                  # Underline (no subscript, see settings below)
+          'pymdownx.tilde',                  # Underline and subscript
           # Add more 'extras' here
           ]
 
@@ -34,27 +36,16 @@ extras_configs = {
         'guess_lang': False
     },
     'markdown.extensions.footnotes': {
-        'BACKLINK_TEXT': "&#8617;&#65038;"
+        'BACKLINK_TEXT': u"&#8617;&#65038;"
     },
     'markdown.extensions.toc': {
         'permalink': "#"
     },
     "pymdownx.emoji": {
-        "emoji_index": pymdownx.emoji.gemoji,
-        "emoji_generator": pymdownx.emoji.to_png,
-        "alt": "short",
-        "options": {
-            "attributes": {
-                "align": "absmiddle",
-                "height": "20px",
-                "width": "20px"
-            },
-            "image_path": "https://assets-cdn.github.com/images/icons/emoji/unicode/",
-            "non_standard_image_path": "https://assets-cdn.github.com/images/icons/emoji/"
-        }
+        "emoji_generator": pymdownx.emoji.to_alt,
+        "alt": "unicode",
     },
     'pymdownx.tilde': {
          'subscript': False
-    },
-    # Add more 'extras' settings here
+    }
 }
