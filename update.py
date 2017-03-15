@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-_version_ = "0.3.6"
+_version_ = "0.4.1"
 
 
 import os
@@ -20,62 +20,60 @@ from config import markdown_dir, extras, extras_configs, defaults
 for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
 
     # Read in content and convert to markdown
-    _defaults = defaults.copy()
+    _metas = defaults.copy()
     root, ext = os.path.splitext(filename)
     with codecs.open(filename, encoding='utf-8') as f:
         text = f.read()
     md = Markdown(extensions=['markdown.extensions.meta'] + extras,
-                  extension_configs=extras_configs)
+                  extension_configs=extras_configs, output_format="html5")
     html = md.convert(text)
 
     # Handle meta data
     meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-    _metas = {}
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
-            if m in ["output_dir", "title", "favicon", "style", "settings"]:
-                _defaults[m] = " ".join(md.Meta[m])
-            else:
-                _metas[m] = " ".join(md.Meta[m])
+            _metas[m] = " ".join(md.Meta[m])
+            if m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
                 meta += '<meta name="{0}" content="{1}">\n'.format(
-                    m.lower(), " ".join(md.Meta[m]))
-    htmldir = os.path.join(os.path.expanduser(_defaults["output_dir"]),
+                    m.lower(), _metas[m])
+
+    htmldir = os.path.join(os.path.expanduser(_metas["output_dir"]),
                            os.path.split(root)[-1])
     outfile = os.path.join(htmldir, "index.html")
     if not os.path.exists(outfile):
         os.makedirs(htmldir)
-    title = "<title>{0}</title>".format(_defaults["title"])
-    if os.path.exists(os.path.expanduser(_defaults["favicon"])):
-        shutil.copy(os.path.expanduser(_defaults["favicon"]),
+    title = "<title>{0}</title>".format(_metas["title"])
+    if os.path.exists(os.path.expanduser(_metas["favicon"])):
+        shutil.copy(os.path.expanduser(_metas["favicon"]),
                     os.path.expanduser(htmldir))
         favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(
-            os.path.split(_defaults["favicon"])[-1])
-    elif _defaults["favicon"].startswith("http"):
+            os.path.split(_metas["favicon"])[-1])
+    elif _metas["favicon"].startswith("http"):
         favicon_link = '<link rel="shortcut icon" href="{0}" type="image/vnd.microsoft.icon">'.format(
-            _defaults["favicon"])
+            _metas["favicon"])
     else:
         favicon_link = ""
-    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages). "
-    if os.path.exists(os.path.expanduser(os.path.join("styles", _defaults["style"] + ".css"))):
-        _defaults['style'] = os.path.join("styles", _defaults["style"] + ".css")
-    if os.path.exists(os.path.expanduser(_defaults["style"])):
-        with open(os.path.expanduser(_defaults["style"])) as f:
+    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages) "
+    if os.path.exists(os.path.expanduser(os.path.join("styles", _metas["style"] + ".css"))):
+        _metas['style'] = os.path.join("styles", _metas["style"] + ".css")
+    if os.path.exists(os.path.expanduser(_metas["style"])):
+        with open(os.path.expanduser(_metas["style"])) as f:
             first_line = f.readline()
             if first_line.startswith("/*"):
                 first_line = first_line.lstrip("/*").rstrip("*/\n")
                 page_credits += first_line
-        shutil.copy(os.path.expanduser(_defaults["style"]),
+        shutil.copy(os.path.expanduser(_metas["style"]),
                     os.path.expanduser(htmldir))
         css_link = '<link href="{0}" rel="stylesheet" media="screen">'.format(
-            os.path.split(_defaults["style"])[-1])
-    elif defaults["style"].startswith("http"):
+            os.path.split(_metas["style"])[-1])
+    elif _metas["style"].startswith("http"):
         css_link = '<link href="{0}" rel="stylesheet" media="screen">'.format(
-            _defaults["style"])
+            _metas["style"])
     else:
         css_link = ""
 
     # Handle header
-    if "noheader" in _defaults["settings"]:
+    if "noheader" in _metas["settings"]:
         header = ""
     else:
         header_pattern = re.compile(r".*?(<header>(.*?)</header>).*?", re.M | re.S)
@@ -84,13 +82,13 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             header = "<header>" + header_match.group(2) + "</header>"
             html = html.replace(header_match.group(1), "")
         else:
-            header = "<header>\n<h1>" + _defaults["title"] + "</h1>"
+            header = "<header>\n<h1>" + _metas["title"] + "</h1>"
             if "description" in _metas.keys():
                 header += "\n<p>" +_metas["description"] + "</p>"
             header += "\n</header>"
 
     # Handle footer
-    if "nofooter" in _defaults["settings"]:
+    if "nofooter" in _metas["settings"]:
         footer = ""
     else:
         page_credits = Markdown().convert(page_credits).replace("<p>", "<p class='page-credits'>")
@@ -102,8 +100,11 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
         else:
             footer = "<footer>"
             if "author" in _metas.keys():
+                author = _metas["author"]
+                if "author_link" in _metas.keys():
+                    author = '<a href="{0}">{1}</a>'.format(_metas["author_link"], author)
                 footer += "\n<p><strong>&copy;" + repr(datetime.now().year) + \
-                          " " + _metas["author"] + "</strong></p>"
+                          " " + author + "</strong></p>"
             footer += "\n" + page_credits + "\n</footer>"
 
     # Put everything together
@@ -120,11 +121,9 @@ u"""<!DOCTYPE html>
 <body>
 {4}
 <section>
-<main>
 {5}
-</main>
-{6}
 </section>
+{6}
 </body>
 </html>""".format(title, meta.rstrip("\n"), favicon_link, css_link, header, html, footer)
     with codecs.open(outfile, encoding='utf-8', mode='w') as f:
