@@ -16,7 +16,7 @@ Installation
    pip install markdown pymdown-extensions pygments 
    ``` 
  
-3. Download the [latest realse][] and extract it 
+3. Download the [latest release][] and extract it 
  
 [Python 2]: http://www.python.org 
 [Markdown]: https://pythonhosted.org/Markdown/ 
