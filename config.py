@@ -2,17 +2,18 @@ import pymdownx.emoji
 
 
 # The directory in which the source markdown (.md) files are located
-markdown_dir = "pages" 
+markdown_dir = "./examples" 
 
 # Default settings (can be overwritten by meta data) 
 defaults = {
-    "output_dir" : "~/public_html/stuff/pages",  # Output directory
-    "style" :      "styles/default.css",         # Default style
-    "author":      "Florian Krause",             # Default author
-    "author_link": "http://www.fladd.de",        # Default author link
-    "title" :      "A StuffPages page",          # Default page title
-    "favicon" :    "",                           # Default link to Favicon file
-    "settings":    ""
+    "output_dir":  "~/Desktop",                  # Output directory
+    "style":       "./styles/default.css",       # Stylesheet
+    "title":       "A StuffPages page",          # Page title
+    "description": ""                            # Page description
+    "author":      "",                           # Author
+    "author_link": "",                           # Author link
+    "favicon":     "",                           # Link to Favicon file
+    "settings":    ""                            # Settings (noheader/nofooter)
 }
 
 # Additional 'extras' to be used by the Python 'markdown' package
