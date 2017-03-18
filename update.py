@@ -33,7 +33,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
             _metas[m] = " ".join(md.Meta[m])
-            if m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
+            if _metas[m] and m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
                 meta += '<meta name="{0}" content="{1}">\n'.format(
                     m.lower(), _metas[m])
 
@@ -99,7 +99,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             html = html.replace(footer_match.group(1), "")
         else:
             footer = "<footer>"
-            if "author" in _metas.keys():
+            if "author" in _metas.keys() anf _metas["author"]:
                 author = _metas["author"]
                 if "author_link" in _metas.keys() and _metas["author_link"]:
                     author = '<a href="{0}">{1}</a>'.format(_metas["author_link"], author)
