@@ -29,14 +29,14 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     html = md.convert(text)
 
     # Handle meta data
-    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
             _metas[m] = " ".join(md.Meta[m])
-            if _metas[m] and m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
-                meta += '<meta name="{0}" content="{1}">\n'.format(
-                    m.lower(), _metas[m])
-
+    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+    for m in _metas:
+        if _metas[m] and m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
+            meta += '<meta name="{0}" content="{1}">\n'.format(
+                m.lower(), _metas[m])
     htmldir = os.path.join(os.path.expanduser(_metas["output_dir"]),
                            os.path.split(root)[-1])
     outfile = os.path.join(htmldir, "index.html")
@@ -53,7 +53,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             _metas["favicon"])
     else:
         favicon_link = ""
-    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages) "
+    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages)"
     if os.path.exists(os.path.expanduser(os.path.join("styles", _metas["style"] + ".css"))):
         _metas['style'] = os.path.join("styles", _metas["style"] + ".css")
     if os.path.exists(os.path.expanduser(_metas["style"])):
