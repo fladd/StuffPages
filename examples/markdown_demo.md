@@ -468,12 +468,40 @@ To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
+<figure markdown="span">
+![cat](http://i.imgur.com/NUyttbn.gif)
+<figcaption>**Figure 1.** Heavy breathing cat.</figcaption>
+</figure>
+
+<table markdown="span">
+  <caption>**Table1**. Some numbers.</caption>                                                                                                                                                                <tr>                                                                                                                                                                                                          <th>Header 1</th>                                                                                                                                                                                           <th>Header 2</th>
+    <th>Header 3</th>                                                                                                                                                                                           <th>Header 4</th>
+    <th>Header 5</th>
+  </tr>                                                                                                                                                                                                       <tr>
+    <td>Value 1</td>                                                                                                                                                                                            <td>Value 2</td>                                                                                                                                                                                            <td>Value 3</td>                                                                                                                                                                                            <td>Value 4</td>
+    <td>Value 5</td>                                                                                                                                                                                          </tr>
+</table>
+
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/tntOCGkgt98' frameborder='0' allowfullscreen></iframe></div>
 ```
 
 To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
+
+<figure markdown="span">
+![cat](http://i.imgur.com/NUyttbn.gif)
+<figcaption>**Figure 1.** Heavy breathing cat.</figcaption>
+</figure>
+
+<table markdown="span">
+  <caption>**Table1**. Some numbers.</caption>                                                                                                                                                                <tr>                                                                                                                                                                                                          <th>Header 1</th>                                                                                                                                                                                           <th>Header 2</th>
+    <th>Header 3</th>                                                                                                                                                                                           <th>Header 4</th>
+    <th>Header 5</th>
+  </tr>                                                                                                                                                                                                       <tr>
+    <td>Value 1</td>                                                                                                                                                                                            <td>Value 2</td>                                                                                                                                                                                            <td>Value 3</td>                                                                                                                                                                                            <td>Value 4</td>
+    <td>Value 5</td>                                                                                                                                                                                          </tr>
+</table>
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/tntOCGkgt98' frameborder='0' allowfullscreen></iframe></div>
 
