@@ -152,6 +152,23 @@ svg:not(:root) {
     overflow: hidden;
 }
 
+figure {
+    margin: 0em 0em 1em;;
+    display: table;
+}  
+
+figcaption {
+    font-size: 0.9em;
+    display: table-caption;
+    caption-side: bottom;
+}  
+
+caption {
+    font-size: 0.9em;
+    text-align: left;
+    margin-bottom: 0.4em;
+} 
+
 hr {
     box-sizing: content-box;
     overflow: hidden;
