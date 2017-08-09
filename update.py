@@ -178,7 +178,7 @@ for outfile in pagelisting_files:
                 with open(os.path.join(directory, "index.html")) as f:
                     for line in f:
                         if line.startswith("<title>") and line.endswith("</title>\n"):
-                            title = line.lstrip("<title>").rstrip("</title>\n")
+                            title = line.replace("<title>", "").replace("</title>\n", "")
                         elif line.startswith('<meta name="description"'):
                             tmp = line.lstrip('<meta name="description" contents="')
                             description = tmp.rstrip('\n').rstrip('>').rstrip('"')
