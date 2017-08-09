@@ -6,7 +6,7 @@ markdown_dir = "pages"
 
 # Default settings (can be overwritten by meta data) 
 defaults = {
-    "output_dir" : "~/public_html/stuff/pages",
+    "output_dir" : "~/Desktop",
     "style" : "styles/default.css",
     "author": "Florian Krause",
     "author_link": "http://www.fladd.de",
