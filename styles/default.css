@@ -26,7 +26,7 @@ header {
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 600;
     margin: 0px;
     padding-top: 0px;
@@ -35,9 +35,9 @@ header h1 {
 }
 
 header p {
-    font-size: 1.6em;
+    font-size: 1.313em;
     font-weight: 300;
-    margin-top: 0.57em;
+    margin-top: 0.563em;
     margin-bottom: 0px;
 }
 
@@ -155,26 +155,26 @@ svg:not(:root) {
 figure {
     margin: 0em 0em 1em;;
     display: table;
-}  
+}
 
 figcaption {
     font-size: 0.9em;
     display: table-caption;
     caption-side: bottom;
-}  
+}
 
 caption {
     font-size: 0.9em;
     text-align: left;
     margin-bottom: 0.4em;
-} 
+}
 
 hr {
     box-sizing: content-box;
     overflow: hidden;
     height: 0.25em;
     padding: 0;
-    margin: 24px 0;
+    margin: 1.5em 0;
     background: transparent;
     background-color: #e7e7e7;
     border: 0;
@@ -247,22 +247,20 @@ pre {
     font-family: monospace, monospace;
     font-size: 1em;
 }
-code {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 12px;
-}
 
 pre {
     margin-top: 0;
     margin-bottom: 0;
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    word-wrap: normal;
 }
 
 kbd {
     display: inline-block;
-    padding: 3px 5px;
-    font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    line-height: 10px;
+    padding: 0.273em 0.455em;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.688em;
+    line-height: 0.91em;
     color: #555;
     vertical-align: middle;
     background-color: #fcfcfc;
@@ -277,6 +275,7 @@ code {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
     margin: 0;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 85%;
     background-color: rgba(0,0,0,0.04);
     border-radius: 3px;
@@ -286,10 +285,6 @@ code::before,
 code::after {
     letter-spacing: -0.2em;
     content: "\00a0";
-}
-
-pre {
-    word-wrap: normal;
 }
 
 pre>code {
@@ -303,7 +298,7 @@ pre>code {
 }
 
 pre {
-    padding: 16px;
+    padding: 1.176em;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
@@ -336,7 +331,7 @@ dl,
 table,
 pre {
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: 1em;
 }
 
 ul ul,
@@ -348,7 +343,7 @@ ol ul {
 }
 
 li>p {
-    margin-top: 16px;
+    margin-top: 1em;
 }
 
 li+li {
@@ -361,15 +356,15 @@ dl {
 
 dl dt {
     padding: 0;
-    margin-top: 16px;
+    margin-top: 1em;
     font-size: 1em;
     font-style: italic;
     font-weight: bold;
 }
 
 dl dd {
-    padding: 0 16px;
-    margin-bottom: 16px;
+    padding: 0 1em;
+    margin-bottom: 1em;
 }
 
 td,
@@ -391,7 +386,7 @@ table th {
 
 table th,
 table td {
-    padding: 6px 13px;
+    padding: 0.375em 0.8125em;
     border: 1px solid #ddd;
 }
 
@@ -404,8 +399,19 @@ table tr:nth-child(2n) {
     background-color: #f8f8f8;
 }
 
-.footnote ol{
+
+.footnote hr {
+    width: 30%;
+    margin-top: 2.1em;
+    margin-bottom: 0px;
+}
+
+.footnote ol {
     font-size: 0.8em;
+}
+
+.footnote-backref {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 [type="checkbox"] {
@@ -424,7 +430,7 @@ table tr:nth-child(2n) {
 }
 
 .task-list-item+.task-list-item {
-    margin-top: 3px;
+    margin-top: 0.1875em;
 }
 
 .task-list-item input {
@@ -432,6 +438,9 @@ table tr:nth-child(2n) {
     vertical-align: middle;
 }
 
+.pagelisting li p a {
+    font-weight: 600;
+}
 
 /* Pygments */
 
