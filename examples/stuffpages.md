@@ -45,8 +45,10 @@ Usage
         * `title` is the default title for web pages 
         * `favicon` is a URL or file path for the favicon to be used 
         * `style` is a URL or file path for the css style to be used 
-        * `settings` is a list of settings: 
+        * `settings` is a list of settings:
+            * `index` for creating an index page
             * `noheader` for not creating a header 
-            * `nofooter` for not creating a footer 
+            * `nofooter` for not creating a footer
+            * `norecursion` for not considering subdirectories
 2. Create Markdown pages (.md files) in your `markdown_dir` 
 3. Run `python update.py` to create corresponding web pages (.html files) in the `output_dir`, that will be served at `url` 
