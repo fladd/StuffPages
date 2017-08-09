@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
-_version_ = "0.4.1"
+_version_ = "0.5.0"
 
 
 import os
 import re
 import shutil
 import codecs
+import fnmatch
+import time
 from datetime import datetime
 from glob import glob
 import sys; sys.dont_write_bytecode = True
@@ -16,12 +18,28 @@ from markdown import Markdown
 from config import markdown_dir, extras, extras_configs, defaults
 
 
-# Loop over all files in markdown directory
-for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
+pagelisting_files = []
+
+# Loop (recursively) over all markdown files in directory
+matches = []
+for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdown_dir))):
+    for filename in fnmatch.filter(filenames, '*.md'):
+        matches.append(os.path.join(root, filename))
+                      
+for filename in matches:
+    try:
+        with open(".lastupdate") as f:
+            if os.path.getmtime(filename) < float(f.read()):
+                continue
+    except:
+        pass
 
     # Read in content and convert to markdown
     _metas = defaults.copy()
     root, ext = os.path.splitext(filename)
+    if "norecursion" in _metas["settings"]:
+        if os.path.split(root)[0] != markdown_dir:
+            continue
     with codecs.open(filename, encoding='utf-8') as f:
         text = f.read()
     md = Markdown(extensions=['markdown.extensions.meta'] + extras,
@@ -29,18 +47,27 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
     html = md.convert(text)
 
     # Handle meta data
+    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
     if hasattr(md, "Meta"):
         for m in md.Meta.keys():
             _metas[m] = " ".join(md.Meta[m])
-    meta = '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-    for m in _metas:
-        if _metas[m] and m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
-            meta += '<meta name="{0}" content="{1}">\n'.format(
-                m.lower(), _metas[m])
-    htmldir = os.path.join(os.path.expanduser(_metas["output_dir"]),
-                           os.path.split(root)[-1])
+            if m.lower() not in ["output_dir", "title", "author_link", "favicon", "style", "settings"]:
+                meta += '<meta name="{0}" content="{1}">\n'.format(
+                    m.lower(), _metas[m])
+    
+    if "norecursion" in _metas["settings"]:
+        htmldir = os.path.join(os.path.expanduser(_metas["output_dir"]),
+                               os.path.split(root)[-1])
+        if "index" in _metas["settings"]:
+            htmldir = os.path.split(htmldir)[0]
+    else:
+        htmldir = os.path.join(os.path.expanduser(_metas["output_dir"]),
+                               os.path.relpath(root, markdown_dir))
+        if "index" in _metas["settings"]:
+            htmldir = os.path.split(htmldir)[0]
+
     outfile = os.path.join(htmldir, "index.html")
-    if not os.path.exists(outfile):
+    if not os.path.exists(htmldir):
         os.makedirs(htmldir)
     title = "<title>{0}</title>".format(_metas["title"])
     if os.path.exists(os.path.expanduser(_metas["favicon"])):
@@ -53,7 +80,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             _metas["favicon"])
     else:
         favicon_link = ""
-    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages)"
+    page_credits = "Created with [StuffPages](https://github.com/fladd/StuffPages) "
     if os.path.exists(os.path.expanduser(os.path.join("styles", _metas["style"] + ".css"))):
         _metas['style'] = os.path.join("styles", _metas["style"] + ".css")
     if os.path.exists(os.path.expanduser(_metas["style"])):
@@ -99,7 +126,7 @@ for filename in glob(os.path.join(os.path.expanduser(markdown_dir), "*.md")):
             html = html.replace(footer_match.group(1), "")
         else:
             footer = "<footer>"
-            if "author" in _metas.keys() anf _metas["author"]:
+            if "author" in _metas.keys():
                 author = _metas["author"]
                 if "author_link" in _metas.keys() and _metas["author_link"]:
                     author = '<a href="{0}">{1}</a>'.format(_metas["author_link"], author)
@@ -126,5 +153,44 @@ u"""<!DOCTYPE html>
 {6}
 </body>
 </html>""".format(title, meta.rstrip("\n"), favicon_link, css_link, header, html, footer)
+
+    # Write page
     with codecs.open(outfile, encoding='utf-8', mode='w') as f:
         f.write(content)
+    print(filename)
+
+    # Contains page listing?
+    if "[PAGES]" in content:
+        pagelisting_files.append(outfile)
+
+# Substitute [PAGES]
+for outfile in pagelisting_files:
+    with open(outfile) as f:
+        content = f.read()
+        pages_list = '<ul class="pagelisting">\n'
+        pages = []
+        htmldir = os.path.split(outfile)[0]
+        for directory in os.listdir(htmldir): #[x[0] for x in os.walk(htmldir)]:
+            directory = os.path.abspath(os.path.join(htmldir, directory))
+            if os.path.isdir(os.path.abspath(directory)): # != htmldir:
+                title = ""
+                description = ""
+                with open(os.path.join(directory, "index.html")) as f:
+                    for line in f:
+                        if line.startswith("<title>") and line.endswith("</title>\n"):
+                            title = line.lstrip("<title>").rstrip("</title>\n")
+                        elif line.startswith('<meta name="description"'):
+                            tmp = line.lstrip('<meta name="description" contents="')
+                            description = tmp.rstrip('\n').rstrip('>').rstrip('"')
+                pages.append([title, description, os.path.split(directory)[-1]])
+        pages.sort()
+        for page in pages:
+            pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
+        pages_list += "</ul>\n"
+        content = content.replace("<p>[PAGES]</p>", pages_list)
+    with open(outfile, 'w') as f:
+        f.write(content)
+
+
+with open(".lastupdate", 'w') as f:
+    f.write(str(time.time()))
