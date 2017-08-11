@@ -34,8 +34,9 @@ for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdow
         matches.append(os.path.join(root, filename))
                       
 for filename in matches + list(set(lastupdate["pagelisting_files"]) - set(matches)):
-    if os.path.getmtime(filename) < lastupdate["time"]:
-        continue
+    if not filename in lastupdate["pagelisting_files"]:
+        if os.path.getmtime(filename) < lastupdate["time"]:
+            continue
 
     # Read in content and convert to markdown
     _metas = defaults.copy()
