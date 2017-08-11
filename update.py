@@ -27,6 +27,7 @@ except:
                   "pagelisting_files": []}
 
 # Loop (recursively) over all markdown files in directory
+outfiles = []
 matches = []
 for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdown_dir))):
     for filename in fnmatch.filter(filenames, '*.md'):
