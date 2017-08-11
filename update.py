@@ -33,7 +33,7 @@ for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdow
         matches.append(os.path.join(root, filename))
                       
 for filename in matches:
-    if os.path.getmtime(filename) < lastupdated["time"]:
+    if os.path.getmtime(filename) < lastupdate"time"]:
         continue
 
     # Read in content and convert to markdown
