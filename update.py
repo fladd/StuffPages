@@ -22,9 +22,9 @@ from config import markdown_dir, extras, extras_configs, defaults
 try:
     with open(".lastupdate") as f:
         lastupdate = json.load(f)
-    except:
-        lastupdate = {"time": 0,
-                      "pagelisting_files": []}
+except:
+    lastupdate = {"time": 0,
+                  "pagelisting_files": []}
 
 # Loop (recursively) over all markdown files in directory
 matches = []
