@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-_version_ = "0.5.0"
+_version_ = "0.5.1"
 
 
 import os
@@ -9,6 +9,7 @@ import shutil
 import codecs
 import fnmatch
 import time
+import json
 from datetime import datetime
 from glob import glob
 import sys; sys.dont_write_bytecode = True
@@ -17,8 +18,13 @@ from markdown import Markdown
 
 from config import markdown_dir, extras, extras_configs, defaults
 
-
-pagelisting_files = []
+# Load update information
+try:
+    with open(".lastupdate") as f:
+        lastupdate = json.load(f)
+    except:
+        lastupdate = {"time": 0,
+                      "pagelisting_files": []}
 
 # Loop (recursively) over all markdown files in directory
 matches = []
@@ -27,12 +33,8 @@ for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdow
         matches.append(os.path.join(root, filename))
                       
 for filename in matches:
-    try:
-        with open(".lastupdate") as f:
-            if os.path.getmtime(filename) < float(f.read()):
-                continue
-    except:
-        pass
+    if os.path.getmtime(filename) < lastupdated["time"]):
+        continue
 
     # Read in content and convert to markdown
     _metas = defaults.copy()
@@ -160,11 +162,11 @@ u"""<!DOCTYPE html>
     print(filename)
 
     # Contains page listing?
-    if "[PAGES]" in content:
-        pagelisting_files.append(outfile)
+    if "[PAGES]" in content and not outfile in lastupdate["pagelisting_files"]:
+        lastupdate["pagelisting_files"].append(outfile)
 
 # Substitute [PAGES]
-for outfile in pagelisting_files:
+for outfile in lastupdate["pagelisting_files"]:
     with open(outfile) as f:
         content = f.read()
         pages_list = '<ul class="pagelisting">\n'
@@ -190,7 +192,10 @@ for outfile in pagelisting_files:
         content = content.replace("<p>[PAGES]</p>", pages_list)
     with open(outfile, 'w') as f:
         f.write(content)
-
-
-with open(".lastupdate", 'w') as f:
-    f.write(str(time.time()))
+        
+# Save update information
+try:
+    with open(".lastupdate", 'w') as f:
+        json.dump(lastupdate, f)
+except:
+    pass
