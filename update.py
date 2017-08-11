@@ -32,7 +32,7 @@ for root, dirnames, filenames in os.walk(os.path.join(os.path.expanduser(markdow
     for filename in fnmatch.filter(filenames, '*.md'):
         matches.append(os.path.join(root, filename))
                       
-for filename in matches:
+for filename in matches + list(set(lastupdate["pagelisting_files"]) - set(matches)):
     if os.path.getmtime(filename) < lastupdate["time"]:
         continue
 
@@ -162,11 +162,13 @@ u"""<!DOCTYPE html>
     print(filename)
 
     # Contains page listing?
-    if "[PAGES]" in content and not outfile in lastupdate["pagelisting_files"]:
-        lastupdate["pagelisting_files"].append(outfile)
+    if "[PAGES]" in content:
+        if not filename in lastupdate["pagelisting_files"]:
+            lastupdate["pagelisting_files"].append(filename)
+        outfiles.append(outfile)
 
 # Substitute [PAGES]
-for outfile in lastupdate["pagelisting_files"]:
+for outfile in outfiles:
     with open(outfile) as f:
         content = f.read()
         pages_list = '<ul class="pagelisting">\n'
