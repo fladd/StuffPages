@@ -172,19 +172,22 @@ for outfile in lastupdate["pagelisting_files"]:
         pages_list = '<ul class="pagelisting">\n'
         pages = []
         htmldir = os.path.split(outfile)[0]
-        for directory in os.listdir(htmldir): #[x[0] for x in os.walk(htmldir)]:
+        for directory in os.listdir(htmldir):
             directory = os.path.abspath(os.path.join(htmldir, directory))
-            if os.path.isdir(os.path.abspath(directory)): # != htmldir:
+            if os.path.isdir(os.path.abspath(directory)):
                 title = ""
                 description = ""
-                with open(os.path.join(directory, "index.html")) as f:
-                    for line in f:
-                        if line.startswith("<title>") and line.endswith("</title>\n"):
-                            title = line.replace("<title>", "").replace("</title>\n", "")
-                        elif line.startswith('<meta name="description"'):
-                            tmp = line.lstrip('<meta name="description" contents="')
-                            description = tmp.rstrip('\n').rstrip('>').rstrip('"')
-                pages.append([title, description, os.path.split(directory)[-1]])
+                try:
+                    with open(os.path.join(directory, "index.html")) as f:
+                        for line in f:
+                            if line.startswith("<title>") and line.endswith("</title>\n"):
+                                title = line.replace("<title>", "").replace("</title>\n", "")
+                            elif line.startswith('<meta name="description"'):
+                                tmp = line.lstrip('<meta name="description" contents="')
+                                description = tmp.rstrip('\n').rstrip('>').rstrip('"')
+                    pages.append([title, description, os.path.split(directory)[-1]])
+                except:
+                    pass
         pages.sort()
         for page in pages:
             pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
@@ -194,6 +197,7 @@ for outfile in lastupdate["pagelisting_files"]:
         f.write(content)
         
 # Save update information
+lastupdate["time"] = time.time()
 try:
     with open(".lastupdate", 'w') as f:
         json.dump(lastupdate, f)
