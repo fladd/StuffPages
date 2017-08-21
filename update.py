@@ -164,7 +164,7 @@ u"""<!DOCTYPE html>
     print(filename)
 
     # Contains page listing?
-    if "[PAGES]" in content or "[SEGAP]" in content:
+    if "[pages]" in content.lower() or "[segap]" in content.lower():
         if not filename in lastupdate["pagelisting_files"]:
             lastupdate["pagelisting_files"].append(filename)
         outfiles.append(outfile)
@@ -173,8 +173,6 @@ u"""<!DOCTYPE html>
 for outfile in outfiles:
     with open(outfile) as f:
         content = f.read()
-        pages_list = '<ul class="pagelisting">\n'
-        reversed_pages_list = '<ul class="pagelisting">\n'
         pages = []
         htmldir = os.path.split(outfile)[0]
         for directory in os.listdir(htmldir):
@@ -193,15 +191,24 @@ for outfile in outfiles:
                     pages.append([title, description, os.path.split(directory)[-1]])
                 except:
                     pass
-        pages.sort()
-        for page in pages:
-            pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
-        pages_list += "</ul>\n"
-        for page in reversed(pages):
-            reversed_pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
-        reversed_pages_list += "</ul>\n"
-        content = content.replace("<p>[PAGES]</p>", pages_list)
-        content = content.replace("<p>[SEGAP]</p>", reversed_pages_list)
+        for substitute in ["[PAGES]", "[SEGAP]", "[pages]", "[segap]"]:
+            if "<p>{0}</p>".format(substitute) in content:
+                if substitute == "[PAGES]":
+                    pages.sort(key=lambda x: x[0])
+                elif substitute == "[SEGAP]":
+                    pages.sort(key=lambda x: x[0])
+                    pages.reverse()
+                elif substitute == "[pages]":
+                    pages.sort(key=lambda x: x[1])
+                elif substitute == "[segap]":
+                    pages.sort(key=lambda x: x[1])
+                    pages.reverse()
+                pages_list = '<ul class="pagelisting">\n'
+                for page in pages:
+                    pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
+                pages_list += "</ul>\n"
+                content = content.replace("<p>{0}</p>".format(substitute), pages_list)
+
     with open(outfile, 'w') as f:
         f.write(content)
         
