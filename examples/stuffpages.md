@@ -52,5 +52,8 @@ Usage
             * `norecursion` for not considering subdirectories
 2. Create Markdown pages (.md files) in your `markdown_dir`:
    * `[TOC]` will be replaced by the table of contents
-   * `[PAGES]` will be replaced by a sorted list of pages (use `[SEGAP]` for reversed sorting)
+   * `[PAGES]` will be replaced by a list of pages sorted by title
+   * `[SEGAP]` will be replaced by a list of pages reverse sorted by title
+   * `[pages]` will be replaced by a list of pages sorted by description
+   * `[segap]` will be replaced by a list of pages reverse sorted by description
 3. Run `python update.py` to create corresponding web pages (.html files) in the `output_dir`, that will be served at `url` 
