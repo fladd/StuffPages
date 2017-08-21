@@ -164,7 +164,7 @@ u"""<!DOCTYPE html>
     print(filename)
 
     # Contains page listing?
-    if "[PAGES]" in content:
+    if "[PAGES]" in content or "[SEGAP]" in content:
         if not filename in lastupdate["pagelisting_files"]:
             lastupdate["pagelisting_files"].append(filename)
         outfiles.append(outfile)
