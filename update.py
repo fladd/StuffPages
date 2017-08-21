@@ -169,11 +169,12 @@ u"""<!DOCTYPE html>
             lastupdate["pagelisting_files"].append(filename)
         outfiles.append(outfile)
 
-# Substitute [PAGES]
+# Substitute [PAGES/SEGAP]
 for outfile in outfiles:
     with open(outfile) as f:
         content = f.read()
         pages_list = '<ul class="pagelisting">\n'
+        reversed_pages_list = '<ul class="pagelisting">\n'
         pages = []
         htmldir = os.path.split(outfile)[0]
         for directory in os.listdir(htmldir):
@@ -196,7 +197,11 @@ for outfile in outfiles:
         for page in pages:
             pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
         pages_list += "</ul>\n"
+        for page in reversed(pages):
+            reversed_pages_list += '<li><p><a href="{0}">{1}</a><br />{2}</p></li>\n'.format(page[2], page[0], page[1])
+        reversed_pages_list += "</ul>\n"
         content = content.replace("<p>[PAGES]</p>", pages_list)
+        content = content.replace("<p>[SEGAP]</p>", reversed_pages_list)
     with open(outfile, 'w') as f:
         f.write(content)
         
