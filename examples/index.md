@@ -1,4 +1,4 @@
-Title: StuffPages examples                                                     
+Title: StuffPages demos                                                     
 Description: Some example pages created with StuffPages                        
 settings: index                                                                
                                                                                
