@@ -1,4 +1,5 @@
 .idea/
 .lastupdate
+html/
+__pycache__/
 *.pyc
-__pycache__
