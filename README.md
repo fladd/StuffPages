@@ -11,39 +11,47 @@ Installation
  
 1. Make sure [Python 2][] is installed 
  
-2. Install the Python packages [Markdown][], [PyMdownExtensions][] and [Pygments][] (optional, for code highlighting): 
-   ``` 
-   pip install markdown pymdown-extensions pygments 
-   ``` 
- 
-3. Download the [latest release][] and extract it 
- 
-[Python 2]: http://www.python.org 
-[Markdown]: https://pythonhosted.org/Markdown/ 
-[PyMdownExtensions]: http://facelessuser.github.io/pymdown-extensions 
-[Pygments]: http://pygments.org 
+2. Download the [latest release][]
+
+3. Install it:
+    ```
+    pip install stuffpages
+    ```
+
 [latest release]: https://github.com/fladd/StuffPages/releases/latest 
  
  
 Usage 
 ===== 
  
-1. Adapt the `config.py` file according to your settings: 
-    * `markdown_dir` is where your markdown pages (.md files) are located 
+1. Create a `config.py` file in your Markdown directory:
+    ```
+    stuffpages init <markdown_dir>
+    ```
+
+2. Adapt the `config.py` file according to your settings: 
     * `extras` is a dictionary with additional modules to be used by the Markdown Python package 
     * `extras-configs` is a dictionary of configurations for the additional modules 
-    * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file: 
+    * `defaults` are the values to be used when nothing is set in the metadata of a Markdown file: 
         * `output_dir` is where your web pages (.html files) will be written to 
-        * `url` is the URL from which the web page will be served from 
-        * `title` is the default title for web pages 
-        * `favicon` is a URL or file path for the favicon to be used 
         * `style` is a URL or file path for the css style to be used 
+        * `author` is the name of the author
+        * `author_link` is a link to the author's website or email address
+        * `title` is the default title for web pages 
+        * `description` is the default description for web pages
+        * `favicon` is a URL or file path for the favicon to be used 
         * `settings` is a list of settings:
             * `index` for creating an index page
             * `noheader` for not creating a header 
             * `nofooter` for not creating a footer
             * `norecursion` for not considering subdirectories
-2. Create Markdown pages (.md files) in your `markdown_dir`:
+            * `nolinkedfilescopy` for not copying linked files
+
+3. Create Markdown pages (.md files) in your Markdown directory:
    * `[TOC]` will be replaced by the table of contents
    * `[PAGES]` will be replaced by a sorted list of pages (use `[SEGAP]` for reversed sorting)
-3. Run `python update.py` to create corresponding web pages (.html files) in the `output_dir`, that will be served at `url` 
+
+4. Create corresponding web pages (.html files) in the `output_dir`:
+    ```
+    stuffpages update <markdown_dir>
+    ```

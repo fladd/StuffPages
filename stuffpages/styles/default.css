@@ -17,10 +17,16 @@ body {
     word-wrap: break-word;
 }
 
+.breadcrumb {
+    text-align: left;
+    font-size: 0.8em;
+}
+
 header {
     text-align: center;
+    border-top: 1px solid #777;
     border-bottom: 1px solid #777;
-    padding-top: 15px;
+    padding-top: 25px;
     padding-bottom: 25px;
     margin-bottom: 45px;
 }
@@ -46,7 +52,8 @@ footer {
     font-weight: 300;
     text-align: center;
     border-top: 1px solid #777;
-    padding-bottom: 15px;
+    border-bottom: 1px solid #777;
+    padding-bottom: 25px;
     padding-top: 25px;
     margin-top: 45px;
 }
@@ -124,6 +131,20 @@ h4:hover > a.headerlink,
 h5:hover > a.headerlink,
 h6:hover > a.headerlink {
     color: #4078c0;
+}
+
+a.toclink {
+    color: #000;
+    text-decoration: none;
+}
+
+h1:hover > a.toclink,
+h2:hover > a.toclink,
+h3:hover > a.toclink,
+h4:hover > a.toclink,
+h5:hover > a.toclink,
+h6:hover > a.toclink {
+    text-decoration: none;
 }
 
 a:active,

@@ -1,0 +1,7 @@
+from os import path as _path
+from glob import glob as _glob
+
+
+builtin_styles = {}
+for f in _glob(_path.abspath(_path.join(_path.split(__file__)[0], "*.css"))):
+    builtin_styles[_path.split(f)[-1][:-4]] = f
