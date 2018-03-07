@@ -18,8 +18,11 @@ body {
 }
 
 .breadcrumb {
-    text-align: left;
     font-size: 0.8em;
+}
+
+a.breadcrumb {
+    font-weigth: 600;
 }
 
 header {
