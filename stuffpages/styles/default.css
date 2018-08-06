@@ -17,19 +17,10 @@ body {
     word-wrap: break-word;
 }
 
-.breadcrumb {
-    font-size: 0.8em;
-}
-
-a.breadcrumb {
-    font-weigth: 600;
-}
-
 header {
     text-align: center;
-    border-top: 1px solid #777;
     border-bottom: 1px solid #777;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-bottom: 25px;
     margin-bottom: 45px;
 }
@@ -55,9 +46,8 @@ footer {
     font-weight: 300;
     text-align: center;
     border-top: 1px solid #777;
-    border-bottom: 1px solid #777;
-    padding-bottom: 25px;
     padding-top: 25px;
+    padding-bottom: 15px;
     margin-top: 45px;
 }
 
@@ -423,7 +413,6 @@ table tr:nth-child(2n) {
     background-color: #f8f8f8;
 }
 
-
 .footnote hr {
     width: 30%;
     margin-top: 2.1em;
@@ -463,6 +452,19 @@ table tr:nth-child(2n) {
 }
 
 .pagelisting li p a {
+    font-weight: 600;
+}
+
+.breadcrumb {
+    font-size: 0.8em;
+    padding-bottom: 10px;
+}
+
+.breadcrumb span {
+    margin: 0 0.3em;
+}
+
+.breadcrumb a {
     font-weight: 600;
 }
 

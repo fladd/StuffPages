@@ -7,16 +7,16 @@ import pymdownx.emoji
 # Default settings (can be overwritten by meta data)
 defaults = {
     "output_dir" : "html",
-    "style" : "default",  # Name of built in style or path/url of .css file
+    "style" : "default",  # Name of built in style or path/url of .css file TODO: add abs_path to template!
     "author": "",
     "author_link": "",
-    "title" : "A StuffPages page",
-    "description": "",
+    "title" : "A StuffPages page",  # Needed!
+    "description": "",  # Needed!
     "settings": "",
     #"favicon": ""
 }
 
-# HTML head (can make use of default settings and meta data)
+# HTML Head (can make use of defaults/meta data and listings)
 html_head = [
     '<meta charset="UTF-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -27,7 +27,14 @@ html_head = [
     #'<link rel="icon" href="{{favicon}}" type="image/x-icon" />'
 ]
 
-# HTML Header (can make use of default settings and meta data)
+# HTML navigation (can make use of defaults/meta data and listings)
+html_nav = [
+    '<nav>',
+    '[BREADCRUMB]'
+    '</nav>'
+]
+
+# HTML Header (can make use of defaults/meta data and listings)
 html_header = [
     '<header>',
     '<h1>{{title}}</h1>',
@@ -42,6 +49,11 @@ html_footer = [
     '<p class="page-credits">Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a></p>',
     '</footer>'
 ]
+
+# Format for each item in pagelistings ([PAGES])
+# (can make use of defaults/meta data)
+# {0} will be replaced by link to page
+pagelisting_format = "<p><a href="{0}">{{title}}</a><br />{{description}}</p>"
 
 # Additional 'extras' to be used by the Python 'markdown' package
 extras = [
@@ -69,7 +81,7 @@ extras_configs = {
         'BACKLINK_TEXT': u"&#8617;&#65038;"
     },
     'markdown.extensions.toc': {
-        'anchorlink': False,
+        #'anchorlink': True,
         'permalink': "#"
     },
     "pymdownx.emoji": {
