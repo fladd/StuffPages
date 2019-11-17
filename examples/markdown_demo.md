@@ -2,7 +2,6 @@
 Title: Markdown Demo
 Description: An example page to showcase StuffPages
 Author: Florian Krause
-Style: default
 ---
 
 **Table of Contents:**

@@ -6,14 +6,14 @@ import pymdownx.emoji
 
 # Default settings (can be overwritten by meta data)
 defaults = {
-    "output_dir" : "html",
-    "style" : "default",  # Name of built in style or path/url of .css file TODO: add abs_path to template!
+    "output_dir": "_stuffpages/html",
+    "style": "_stuffpages/styles/default.css",
+    #"favicon": ""
     "author": "",
     "author_link": "",
-    "title" : "A StuffPages page",  # Needed!
-    "description": "",  # Needed!
+    "title": "A StuffPages page",  # Needed!
+    "description": "",
     "settings": "",
-    #"favicon": ""
 }
 
 # HTML Head (can make use of defaults/meta data and listings)
@@ -23,37 +23,40 @@ html_head = [
     '<title>{{title}}</title>',
     '<meta name="author" content="{{author}}">',
     '<meta name="description" content="{{description}}">',
-    '<link href="{{style}}" rel="stylesheet" media="screen">'
+    '<link href="{{style}}" rel="stylesheet" media="screen">',
     #'<link rel="icon" href="{{favicon}}" type="image/x-icon" />'
 ]
 
 # HTML navigation (can make use of defaults/meta data and listings)
 html_nav = [
-    '<nav>',
-    '[BREADCRUMB]'
-    '</nav>'
+    '[BREADCRUMB]',
 ]
 
 # HTML Header (can make use of defaults/meta data and listings)
 html_header = [
-    '<header>',
     '<h1>{{title}}</h1>',
     '<p>{{description}}</p>',
-    '</header>'
 ]
 
 # HTML Footer (can make use of default settings and meta data)
 html_footer = [
-    '<footer>',
-    '<p><strong>&copy; {0} <a href="{{author_link}}">{{author}}</a></strong></p>'.format(datetime.now().year),
-    '<p class="page-credits">Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a></p>',
-    '</footer>'
+    '<p>',
+    '<strong>&copy; {0} '.format(datetime.now().year) + \
+        '<a href="{{author_link}}">{{author}}</a></strong>',
+    '<br />',
+    'Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a>',
+    '</p>',
 ]
 
-# Format for each item in pagelistings ([PAGES])
+# Format for each item in pages listings ([PAGES])
 # (can make use of defaults/meta data)
 # {0} will be replaced by link to page
-pagelisting_format = "<p><a href="{0}">{{title}}</a><br />{{description}}</p>"
+pagelisting_format = '<p><a href="{0}">{{title}}</a><br />{{description}}</p>'
+
+# Format for each item in breadcrumb listings ([BREADCRUMB])
+# (can make use of defaults/meta data)
+# {0} will be replaced by link to page
+breadcrumb_format = '<a href="{0}">{{title}}</a>'
 
 # Additional 'extras' to be used by the Python 'markdown' package
 extras = [
@@ -78,7 +81,7 @@ extras_configs = {
         'guess_lang': False
     },
     'markdown.extensions.footnotes': {
-        'BACKLINK_TEXT': u"&#8617;&#65038;"
+        'BACKLINK_TEXT': u"&#8617;&#65038;",
     },
     'markdown.extensions.toc': {
         #'anchorlink': True,
