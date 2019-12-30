@@ -19,9 +19,10 @@ Installation
 1. Make sure [Python 2][] is installed 
  
 2. Install the Python packages [Markdown][], [PyMdownExtensions][] and [Pygments][] (optional, for code highlighting): 
-   ``` 
-   pip install markdown pymdown-extensions pygments 
-   ``` 
+   
+    ``` 
+    pip install markdown pymdown-extensions pygments 
+    ``` 
  
 3. Download the [latest release][] and extract it 
  

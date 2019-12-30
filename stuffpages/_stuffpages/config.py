@@ -1,20 +1,21 @@
 import os
-from datetime import datetime
+from datetime import date
 
 import pymdownx.emoji
 
 
+# HTML output directory
+output_dir = "_stuffpages/html"
+
 # Default settings (can be overwritten by meta data)
 defaults = {
-    "output_dir": "_stuffpages/html",
-    "style": "_stuffpages/styles/default.css",
-    #"favicon": ""
-    "title": "A StuffPages page",  # Needed!
-    "description": "",
-    "author": "",
-    "author_link": "",
-    "date" : str(datetime.now().date())
-    "settings": "",
+    "title":        "Title",
+    "description":  "Description",
+    "author":       "Unknown Author",
+    "authorlink":   "http://unknown-author.com",
+    "style":        os.path.abspath("_stuffpages/styles/default.css"),
+    #"favicon":     ""
+    "settings":     "",
 }
 
 # HTML Head (can make use of defaults/meta data and listings)
@@ -42,10 +43,10 @@ html_header = [
 # HTML Footer (can make use of default settings and meta data)
 html_footer = [
     '<p>',
-    '<strong>&copy; <a href="{{author_link}}">{{author}}</a>' +\
-        ' | {{date}}</strong>',
+    '<strong>&copy; <a href="{{authorlink}}">{{author}}</a></strong>',
     '<br />',
-    'Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a>',
+    'Created with <a href="https://github.com/fladd/StuffPages">' +\
+    'StuffPages</a> on {0}'.format(date.today().strftime("%d %b %Y")),
     '</p>',
 ]
 
