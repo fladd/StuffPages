@@ -82,4 +82,3 @@ Each Markdown file, as well as the `html_(head|nav|header|footer)` in the config
 [Pygments]: http://pygments.org 
 [latest release]: https://github.com/fladd/StuffPages/releases/latest 
  
-

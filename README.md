@@ -15,7 +15,7 @@ Installation
 ============ 
  
 1. Make sure [Python 3][] is installed 
- 
+
 2. Download the [latest release][]
 
 3. Install with
@@ -82,5 +82,4 @@ Each Markdown file, as well as the `html_(head|nav|header|footer)` in the config
 [Pygments]: http://pygments.org 
 [latest release]: https://github.com/fladd/StuffPages/releases/latest 
  
-
 

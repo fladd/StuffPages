@@ -294,7 +294,8 @@ class StuffPages:
                         linkpath = os.path.normpath(os.path.join(
                             os.path.split(filename)[0], link))
                         if os.path.relpath(
-                            linkpath, os.path.split(filename)[0]).startswith(".."):
+                                linkpath,
+                                os.path.split(filename)[0]).startswith(".."):
                             link = abs_link
                         else:
                             internal_link = True
