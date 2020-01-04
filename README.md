@@ -14,7 +14,6 @@ I created _StuffPages_ as a quick way to publish simple web pages on my web serv
 Installation 
 ============ 
  
-<<<<<<< HEAD
 1. Make sure [Python 3][] is installed 
 
 2. Download the [latest release][]
