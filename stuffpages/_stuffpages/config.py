@@ -11,11 +11,11 @@ output_dir = "_stuffpages/html"
 defaults = {
     "title":        "Title",
     "description":  "Description",
-    "author":       "Unknown Author",
-    "authorlink":   "http://unknown-author.com",
+    "author":       "Author",
+    "authorlink":   "http://author.com",
     "style":        os.path.abspath("_stuffpages/styles/default.css"),
-    #"favicon":     ""
     "settings":     "",
+    #"favicon":     ""
 }
 
 # HTML Head (can make use of defaults/meta data and listings)

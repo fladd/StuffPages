@@ -326,7 +326,6 @@ class StuffPages:
                         l[tag] = os.path.join("_resources",
                                               target_dir,
                                               os.path.split(link)[-1])
-                        print("YES", filename, link, to_, l[tag])
                     else:
                         to_ = os.path.join(self.output_dir, "_resources",
                                            target_dir,
@@ -352,7 +351,6 @@ class StuffPages:
                     if "selfcontained" in _metas["settings"]:
                         to_ = os.path.join(htmldir, "_resources", link)
                         l[tag] = os.path.join("_resources", link)
-                        print("YES!", filename, link, to_, l[tag])
                     else:
                         to_ = os.path.normpath(os.path.join(self.output_dir,
                                                             "_resources",

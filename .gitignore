@@ -1,5 +1,6 @@
 .idea/
 .lastupdate
-html/
 __pycache__/
 *.pyc
+stuffpages.egg-info
+examples/_stuffpages/
