@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>StuffPages</title>
+<meta content="Florian Krause" name="author"/>
+<meta content="A quick way to create simple web pages using Markdown" name="description"/>
+<link href="../_resources/_stuffpages/styles/default.css" media="screen" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<span class="breadcrumb">~<span>/</span><a href="../">StuffPages examples</a><span>/</span></span></nav>
+<header>
+<h1>StuffPages</h1>
+<p>A quick way to create simple web pages using Markdown</p>
+</header>
+<h1 id="introduction">Introduction <a class="headerlink" href="#introduction" title="Permanent link">#</a></h1>
+<p>I created <em>StuffPages</em> as a quick way to publish simple web pages on my web server. Basically, it takes Markdown files from a specified directory, turns them into CSS-styeld HTML files, and saves the output in another specified directory. </p>
+<h1 id="installation">Installation <a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
+<ol>
+<li>
+<p>Make sure <a href="http://www.python.org">Python 3</a> is installed </p>
+</li>
+<li>
+<p>Download the <a href="https://github.com/fladd/StuffPages/releases/latest">latest release</a></p>
+</li>
+<li>
+<p>Install with</p>
+<div class="codehilite"><pre><span></span>pip3 install StuffPages-X.X.X.zip
+</pre></div>
+(replace X.X.X with latest release version)
+</li>
+</ol>
+<h1 id="usage">Usage <a class="headerlink" href="#usage" title="Permanent link">#</a></h1>
+<ol>
+<li>
+<p>Initialize StuffPages within the directory that contains the Markdown files:</p>
+<div class="codehilite"><pre><span></span>cd /path/to/directory/
+stuffpages init
+</pre></div>
+</li>
+<li>
+<p>Adapt <code>/path/to/directory/_stuffpages/config.py</code> according to your settings: </p>
+<ul>
+<li><code>output_dir</code> is the name of the directory that will contain the converted
+  HTML files</li>
+<li><code>defaults</code> are the values to be used when nothing is set in the metadata of the Markdown file: <ul>
+<li><code>title</code> is the default title for generated pages </li>
+<li><code>description</code> is the default description for generated pages</li>
+<li><code>author</code> is the default name of the author shown on generaged pages</li>
+<li><code>authorlink</code> is the default target the author name links to</li>
+<li><code>style</code> is a URL or file path for the css style to be used </li>
+<li><code>settings</code> is an optional list of the following settings:<ul>
+<li><code>nonav</code> for not creating a nav section</li>
+<li><code>noheader</code> for not creating a header section</li>
+<li><code>nofooter</code> for not creating a footer section</li>
+<li><code>norecursion</code> for not considering subdirectories</li>
+<li><code>selfcontained</code> for having a _resources directory for each page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>html_head</code> is a list of lines that are injected in the final HTML output between <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code></li>
+<li><code>html_nav</code> is a list of lines that are injected in the final HTML output between <code>&lt;nav&gt;</code> and <code>&lt;/nav&gt;</code></li>
+<li><code>html_header</code> is a list of lines that are injected in the final HTML output between <code>&lt;header&gt;</code> and <code>&lt;/header&gt;</code></li>
+<li><code>html_footer</code> is a list of lines that are injected in the final HTML output between <code>&lt;footer&gt;</code> and <code>&lt;/footer&gt;</code></li>
+<li><code>pagelisting_format</code> is a string describing the format for each item in pages listings ([PAGE])</li>
+<li><code>breadcrumb_format</code> is a string describing the format for each item in breadcrumb listings ([BREADCRUMB])</li>
+<li><code>extras</code> is a dictionary with additional modules to be used by the Markdown Python package </li>
+<li><code>extras-configs</code> is a dictionary of configurations for the additional modules </li>
+</ul>
+</li>
+<li>
+<p>Build the HTML pages:</p>
+<div class="codehilite"><pre><span></span>stuffpages build
+</pre></div>
+</li>
+</ol>
+<h1 id="listings">Listings <a class="headerlink" href="#listings" title="Permanent link">#</a></h1>
+<p>Each Markdown file, as well as the <code>html_(head|nav|header|footer)</code> in the config file can contain special listings markers:</p>
+<ul>
+<li><code>[TOC]</code> will be replaced by the table of contents</li>
+<li><code>[PAGES]</code> will be replaced by a list of pages sorted by title, prepending <code>!</code> (i.e. <code>[!PAGES]</code>) will reverse sort, and appending a defaults/meta data variable name (e.g. Description) will sort by that defaults/meta data (e.g. <code>[PAGES Description]</code>)</li>
+<li><code>[BREADCRUMB]</code> will be replaced by a breadcrumb trail of links from the current page to the parent page</li>
+</ul>
+<footer>
+<p>
+<strong>© <a href="http://author.com">Florian Krause</a></strong>
+<br/>
+Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 11 Mar 2020
+</p>
+</footer>
+</body>
+</html>
