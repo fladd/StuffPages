@@ -401,7 +401,7 @@ class StuffPages:
                                         re.MULTILINE):
                     pages.sort(key=lambda x: x[0])  # sort by filename
                     try:  # sort by meta
-                        pages.sort(key=lambda x: x[1][match[2]])
+                        pages.sort(key=lambda x: x[1][match[2].lower()])
                     except:
                         pass
                     if match[1] == '!':  # reverse sort
