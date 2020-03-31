@@ -168,13 +168,15 @@ svg:not(:root) {
 
 figure {
     margin: 0em 0em 1em;;
-    display: table;
+    display: block;
+    width: 100%;
+    overflow: auto;
 }
 
 figcaption {
     font-size: smaller;
-    display: table-caption;
-    caption-side: bottom;
+    display: block;
+    margin-bottom: 0.4em;
 }
 
 caption {
@@ -412,6 +414,11 @@ table tr {
 
 table tr:nth-child(2n) {
     background-color: #f8f8f8;
+}
+
+iframe {
+    max-width: 100%;
+    box-sizing: content-box;
 }
 
 .footnote hr {

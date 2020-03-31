@@ -193,7 +193,10 @@ class StuffPages:
             # Fix HTML output
             fixed_html = []
             for line in html.split("\n"):
-                if line.startswith("<p>") and \
+                if line.startswith("<p><figcaption>") and \
+                        line.endswith("</figcaption></p>"):
+                    fixed_html.append(line[3:-4])
+                elif line.startswith("<p>") and \
                         line != "<p>" and \
                         not line.endswith("</p>"):
                     fixed_html.append(line[3:])

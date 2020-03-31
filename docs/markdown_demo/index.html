@@ -403,43 +403,86 @@ You can also escape `:` characters to escape the emoji: \:smile:.
 
 Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &lt;u&gt;underline&lt;/u&gt; text.
 
-&lt;figure markdown="span"&gt;
+&lt;figure markdown="1"&gt;
 ![cat](http://i.imgur.com/NUyttbn.gif)
-&lt;figcaption&gt;**Figure 1.** Heavy breathing cat.&lt;/figcaption&gt;
+&lt;figcaption&gt;**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;table markdown="span"&gt;
-  &lt;caption&gt;**Table1**. Some numbers.&lt;/caption&gt;                                                                                                                                                                &lt;tr&gt;                                                                                                                                                                                                          &lt;th&gt;Header 1&lt;/th&gt;                                                                                                                                                                                           &lt;th&gt;Header 2&lt;/th&gt;
-    &lt;th&gt;Header 3&lt;/th&gt;                                                                                                                                                                                           &lt;th&gt;Header 4&lt;/th&gt;
-    &lt;th&gt;Header 5&lt;/th&gt;
-  &lt;/tr&gt;                                                                                                                                                                                                       &lt;tr&gt;
-    &lt;td&gt;Value 1&lt;/td&gt;                                                                                                                                                                                            &lt;td&gt;Value 2&lt;/td&gt;                                                                                                                                                                                            &lt;td&gt;Value 3&lt;/td&gt;                                                                                                                                                                                            &lt;td&gt;Value 4&lt;/td&gt;
-    &lt;td&gt;Value 5&lt;/td&gt;                                                                                                                                                                                          &lt;/tr&gt;
-&lt;/table&gt;
+&lt;figure markdown="1"&gt;
+&lt;figcaption&gt;**Table1**. Some numbers. And here comes a rather long description to test wrapping and stuff.&lt;/figcaption&gt;
 
-&lt;style&gt;.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://www.youtube.com/embed/tntOCGkgt98' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+| Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
+| Value 1  | Value 2  | Value 3  | Value 4  | Value 5  | Value 6  | Value 7  | Value 8  | Value 9  | Value 10  |
+| Value 11 | Value 12 | Value 13 | Value 14 | Value 15 | Value 16 | Value 17 | Value 18 | Value 19 | Value 20  |
+
+&lt;/figure&gt;
+
+&lt;figure&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/figure&gt;
 </pre></div>
 <p>To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.</p>
 <p>Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.</p>
 <figure>
 <img alt="cat" src="http://i.imgur.com/NUyttbn.gif"/>
-<figcaption><strong>Figure 1.</strong> Heavy breathing cat.</figcaption></figure>
+<figcaption><strong>Figure 1.</strong> Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
+</figure>
+<figure>
+<figcaption><strong>Table1</strong>. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
 <table>
-<caption><strong>Table1</strong>. Some numbers.</caption> <tr> <th>Header 1</th> <th>Header 2</th>
-<th>Header 3</th> <th>Header 4</th>
+<thead>
+<tr>
+<th>Header 1</th>
+<th>Header 2</th>
+<th>Header 3</th>
+<th>Header 4</th>
 <th>Header 5</th>
-</tr> <tr>
-<td>Value 1</td> <td>Value 2</td> <td>Value 3</td> <td>Value 4</td>
-<td>Value 5</td> </tr></table>
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
-<div class="embed-container"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/tntOCGkgt98"></iframe></div>
+<th>Header 6</th>
+<th>Header 7</th>
+<th>Header 8</th>
+<th>Header 9</th>
+<th>Header 10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value 1</td>
+<td>Value 2</td>
+<td>Value 3</td>
+<td>Value 4</td>
+<td>Value 5</td>
+<td>Value 6</td>
+<td>Value 7</td>
+<td>Value 8</td>
+<td>Value 9</td>
+<td>Value 10</td>
+</tr>
+<tr>
+<td>Value 11</td>
+<td>Value 12</td>
+<td>Value 13</td>
+<td>Value 14</td>
+<td>Value 15</td>
+<td>Value 16</td>
+<td>Value 17</td>
+<td>Value 18</td>
+<td>Value 19</td>
+<td>Value 20</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<figure>
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" width="560"></iframe>
+</figure>
 <h1 id="extensions">Extensions <a class="headerlink" href="#extensions" title="Permanent link">#</a></h1>
 <p>You can also extend <em>StuffPages</em> with <a href="https://pythonhosted.org/Markdown/extensions/index.html">Python Markdown extensions</a>. Just install the extensions and add them to <code>extras</code> in <code>config.py</code>.</p>
 <footer>
 <p>
 <strong>© <a href="http://author.com">Florian Krause</a></strong>
 <br>
-Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 11 Mar 2020
+Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 01 Apr 2020
 </br></p>
 </footer>
 </body>

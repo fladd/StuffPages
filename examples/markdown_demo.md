@@ -465,43 +465,49 @@ To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
-<figure markdown="span">
+<figure markdown="1">
 ![cat](http://i.imgur.com/NUyttbn.gif)
-<figcaption>**Figure 1.** Heavy breathing cat.</figcaption>
+<figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
 </figure>
 
-<table markdown="span">
-  <caption>**Table1**. Some numbers.</caption>                                                                                                                                                                <tr>                                                                                                                                                                                                          <th>Header 1</th>                                                                                                                                                                                           <th>Header 2</th>
-    <th>Header 3</th>                                                                                                                                                                                           <th>Header 4</th>
-    <th>Header 5</th>
-  </tr>                                                                                                                                                                                                       <tr>
-    <td>Value 1</td>                                                                                                                                                                                            <td>Value 2</td>                                                                                                                                                                                            <td>Value 3</td>                                                                                                                                                                                            <td>Value 4</td>
-    <td>Value 5</td>                                                                                                                                                                                          </tr>
-</table>
+<figure markdown="1">
+<figcaption>**Table1**. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/tntOCGkgt98' frameborder='0' allowfullscreen></iframe></div>
+| Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
+| Value 1  | Value 2  | Value 3  | Value 4  | Value 5  | Value 6  | Value 7  | Value 8  | Value 9  | Value 10  |
+| Value 11 | Value 12 | Value 13 | Value 14 | Value 15 | Value 16 | Value 17 | Value 18 | Value 19 | Value 20  |
+
+</figure>
+
+<figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
 ```
 
 To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
-<figure markdown="span">
+<figure markdown="1">
 ![cat](http://i.imgur.com/NUyttbn.gif)
-<figcaption>**Figure 1.** Heavy breathing cat.</figcaption>
+<figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
 </figure>
 
-<table markdown="span">
-  <caption>**Table1**. Some numbers.</caption>                                                                                                                                                                <tr>                                                                                                                                                                                                          <th>Header 1</th>                                                                                                                                                                                           <th>Header 2</th>
-    <th>Header 3</th>                                                                                                                                                                                           <th>Header 4</th>
-    <th>Header 5</th>
-  </tr>                                                                                                                                                                                                       <tr>
-    <td>Value 1</td>                                                                                                                                                                                            <td>Value 2</td>                                                                                                                                                                                            <td>Value 3</td>                                                                                                                                                                                            <td>Value 4</td>
-    <td>Value 5</td>                                                                                                                                                                                          </tr>
-</table>
+<figure markdown="1">
+<figcaption>**Table1**. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
 
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/tntOCGkgt98' frameborder='0' allowfullscreen></iframe></div>
+| Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
+| Value 1  | Value 2  | Value 3  | Value 4  | Value 5  | Value 6  | Value 7  | Value 8  | Value 9  | Value 10  |
+| Value 11 | Value 12 | Value 13 | Value 14 | Value 15 | Value 16 | Value 17 | Value 18 | Value 19 | Value 20  |
 
+</figure>
+
+<figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
 
 # Extensions
 
