@@ -467,11 +467,11 @@ Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
 <figure markdown="1">
 ![cat](http://i.imgur.com/NUyttbn.gif)
-<figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
+<figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test text wrapping.</figcaption>
 </figure>
 
 <figure markdown="1">
-<figcaption>**Table1**. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
+<figcaption>**Table1**. Some numbers. And here comes a rather long description to test text wrapping.</figcaption>
 
 | Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
