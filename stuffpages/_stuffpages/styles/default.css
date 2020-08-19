@@ -39,6 +39,11 @@ header h1, h2 {
     border-bottom: 0px;
 }
 
+main {
+    margin-top : 45px;
+    margin-bottom: 45px;
+}
+
 footer h1, h2 {
     padding-bottom: 0px;
     border-bottom: 0px;
@@ -109,11 +114,20 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: #7070B2;
+}
+
 a.headerlink {
-    color: #fff;
+    color: #4078c0;
     font-size: smaller;
     font-weight: 300;
+    opacity: 0;
     /*margin-left: 0.3em;*/
+}
+
+a.headerlink:visited {
+    color: #7070B2;
 }
 
 h1:hover > a.headerlink,
@@ -122,11 +136,15 @@ h3:hover > a.headerlink,
 h4:hover > a.headerlink,
 h5:hover > a.headerlink,
 h6:hover > a.headerlink {
-    color: #4078c0;
+    opacity: 1;
+}
+
+a.headerlink:focus {
+    opacity: 1;
 }
 
 a.toclink {
-    color: #000;
+    color: #2E2E2E;
     text-decoration: none;
 }
 
@@ -193,8 +211,7 @@ hr {
     background: transparent;
     background-color: #e7e7e7;
     border: 0;
-    border-bottom: 1px solid #ddd;
-    border-bottom-color: #eee;
+    border-bottom: 1px solid #eee;
 }
 
 hr::before {

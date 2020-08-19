@@ -4,13 +4,12 @@
 
 body {
     min-width: 200px;
-    max-width: 910px;
+    max-width: 902px;
     margin: 0 auto;
     padding: 10px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    line-height: 1.5;
-    color: #333;
+    color: #2E2E2E;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.5;
@@ -38,6 +37,11 @@ header :nth-last-child(1) {
 header h1, h2 {
     padding-bottom: 0px;
     border-bottom: 0px;
+}
+
+main {
+    margin-top : 45px;
+    margin-bottom: 45px;
 }
 
 footer h1, h2 {
@@ -110,11 +114,20 @@ a {
     text-decoration: none;
 }
 
+a:visited {
+    color: #7070B2;
+}
+
 a.headerlink {
-    color: #fff;
+    color: #4078c0;
     font-size: smaller;
     font-weight: 300;
+    opacity: 0;
     /*margin-left: 0.3em;*/
+}
+
+a.headerlink:visited {
+    color: #7070B2;
 }
 
 h1:hover > a.headerlink,
@@ -123,11 +136,15 @@ h3:hover > a.headerlink,
 h4:hover > a.headerlink,
 h5:hover > a.headerlink,
 h6:hover > a.headerlink {
-    color: #4078c0;
+    opacity: 1;
+}
+
+a.headerlink:focus {
+    opacity: 1;
 }
 
 a.toclink {
-    color: #000;
+    color: #2E2E2E;
     text-decoration: none;
 }
 
@@ -194,8 +211,7 @@ hr {
     background: transparent;
     background-color: #e7e7e7;
     border: 0;
-    border-bottom: 1px solid #ddd;
-    border-bottom-color: #eee;
+    border-bottom: 1px solid #eee;
 }
 
 hr::before {
@@ -267,7 +283,7 @@ pre {
 
 pre {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1.176em;
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     word-wrap: normal;
 }
@@ -321,6 +337,7 @@ pre {
     line-height: 1.45;
     background-color: #f7f7f7;
     border-radius: 3px;
+    margin-bottom: 1.176em;
 }
 
 pre code {
@@ -345,8 +362,7 @@ blockquote,
 ul,
 ol,
 dl,
-table,
-pre {
+table {
     margin-top: 0;
     margin-bottom: 1em;
 }

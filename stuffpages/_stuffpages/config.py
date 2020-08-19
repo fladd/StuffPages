@@ -5,45 +5,49 @@ import pymdownx.emoji
 
 
 # HTML output directory
-output_dir = "_stuffpages/html"
+output_dir = "html"
 
 # Default settings (can be overwritten by meta data)
 defaults = {
-    "title":        "Title",
-    "description":  "Description",
-    "author":       "Author",
-    "authorlink":   "http://author.com",
-    "style":        os.path.abspath("_stuffpages/styles/default.css"),
+    "title":        None,  # None will set title to file/directory name
+    "description":  "",
+    "author":       "Unknown",
+    "authorlink":   "https://en.wikipedia.org/wiki/Anonymous_work",
+    "style":        os.path.abspath("styles/default.css"),
     "settings":     "",
     #"favicon":     ""
 }
 
-# HTML Head (can make use of defaults/meta data and listings)
+# HTML Head
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
 html_head = [
     '<meta charset="UTF-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    '<title>{{title}}</title>',
-    '<meta name="author" content="{{author}}">',
-    '<meta name="description" content="{{description}}">',
-    '<link href="{{style}}" rel="stylesheet" media="screen">',
+    '<title>$title</title>',
+    '<meta name="author" content="$author">',
+    '<meta name="description" content="$description">',
+    '<link href="$style" rel="stylesheet" media="screen">',
     #'<link rel="icon" href="{{favicon}}" type="image/x-icon" />'
 ]
 
-# HTML navigation (can make use of defaults/meta data and listings)
+# HTML navigation
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
 html_nav = [
     '[BREADCRUMB]',
 ]
 
-# HTML Header (can make use of defaults/meta data and listings)
+# HTML Header
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
 html_header = [
-    '<h1>{{title}}</h1>',
-    '<p>{{description}}</p>',
+    '<h1>$title</h1>',
+    '<p>$description</p>',
 ]
 
-# HTML Footer (can make use of default settings and meta data)
+# HTML Footer
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
 html_footer = [
     '<p>',
-    '<strong>&copy; <a href="{{authorlink}}">{{author}}</a></strong>',
+    '<strong>&copy; <a href="$authorlink">$author</a></strong>',
     '<br />',
     'Created with <a href="https://github.com/fladd/StuffPages">' +\
     'StuffPages</a> on {0}'.format(date.today().strftime("%d %b %Y")),
@@ -51,25 +55,25 @@ html_footer = [
 ]
 
 # Format for each item in pages listings ([PAGES])
-# (can make use of defaults/meta data)
-# {0} will be replaced by link to page
-pagelisting_format = '<p><a href="{0}">{{title}}</a><br />{{description}}</p>'
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
+# $LINK will be replaced by a (relative) link to page
+pagelisting_format = '<p><a href="$LINK">$title</a><br />$description</p>'
 
 # Format for each item in breadcrumb listings ([BREADCRUMB])
-# (can make use of defaults/meta data)
-# {0} will be replaced by link to page
-breadcrumb_format = '<a href="{0}">{{title}}</a>'
+# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
+# $LINK will be replaced by (relative) link to page
+breadcrumb_format = '<a href="$LINK">$title</a>'
 
 # Additional 'extras' to be used by the Python 'markdown' package
 extras = [
-    'markdown.extensions.codehilite',  # Syntax highlighting for code blocks
     'markdown.extensions.def_list',    # Definition Lists
     'markdown.extensions.footnotes',   # Footnotes
+    'markdown.extensions.md_in_html',  # Markdown within HTML
     'markdown.extensions.tables',      # Tables
     'markdown.extensions.toc',         # Table of Contents
-    'pymdownx.extrarawhtml',
     'pymdownx.betterem',               # Improved emphasis handling
     'pymdownx.emoji',                  # Emoji
+    'pymdownx.highlight',              # Syntax highlighting
     'pymdownx.magiclink',              # Generate links from raw URLs
     'pymdownx.superfences',            # Fenced Code Blocks
     'pymdownx.tasklist',               # Task Lists
@@ -79,9 +83,6 @@ extras = [
 
 # Configuration for additional 'extras'
 extras_configs = {
-    'markdown.extensions.codehilite': {
-        'guess_lang': False
-    },
     'markdown.extensions.footnotes': {
         'BACKLINK_TEXT': u"&#8617;&#65038;",
     },

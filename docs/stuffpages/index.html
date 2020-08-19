@@ -16,8 +16,10 @@
 <h1>StuffPages</h1>
 <p>A quick way to create simple web pages using Markdown</p>
 </header>
+<main>
 <h1 id="introduction">Introduction <a class="headerlink" href="#introduction" title="Permanent link">#</a></h1>
 <p>I created <em>StuffPages</em> as a quick way to publish simple web pages on my web server. Basically, it takes Markdown files from a specified directory, turns them into CSS-styeld HTML files, and saves the output in another specified directory. </p>
+<p>Have a look at some <a href="https://fladd.github.io/StuffPages">examples</a>!</p>
 <h1 id="installation">Installation <a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
 <ol>
 <li>
@@ -28,8 +30,8 @@
 </li>
 <li>
 <p>Install with</p>
-<div class="codehilite"><pre><span></span>pip3 install StuffPages-X.X.X.zip
-</pre></div>
+<div class="highlight"><pre><span></span><code>pip3 install StuffPages-X.X.X.zip
+</code></pre></div>
 (replace X.X.X with latest release version)
 </li>
 </ol>
@@ -37,9 +39,9 @@
 <ol>
 <li>
 <p>Initialize StuffPages within the directory that contains the Markdown files:</p>
-<div class="codehilite"><pre><span></span>cd /path/to/directory/
+<div class="highlight"><pre><span></span><code>cd /path/to/directory/
 stuffpages init
-</pre></div>
+</code></pre></div>
 </li>
 <li>
 <p>Adapt <code>/path/to/directory/_stuffpages/config.py</code> according to your settings: </p>
@@ -74,8 +76,8 @@ stuffpages init
 </li>
 <li>
 <p>Build the HTML pages:</p>
-<div class="codehilite"><pre><span></span>stuffpages build
-</pre></div>
+<div class="highlight"><pre><span></span><code>stuffpages build
+</code></pre></div>
 </li>
 </ol>
 <h1 id="listings">Listings <a class="headerlink" href="#listings" title="Permanent link">#</a></h1>
@@ -85,11 +87,12 @@ stuffpages init
 <li><code>[PAGES]</code> will be replaced by a list of pages sorted by title, prepending <code>!</code> (i.e. <code>[!PAGES]</code>) will reverse sort, and appending a defaults/meta data variable name (e.g. Description) will sort by that defaults/meta data (e.g. <code>[PAGES Description]</code>)</li>
 <li><code>[BREADCRUMB]</code> will be replaced by a breadcrumb trail of links from the current page to the parent page</li>
 </ul>
+</main>
 <footer>
 <p>
-<strong>© <a href="http://author.com">Florian Krause</a></strong>
+<strong>© <a href="https://www.fladd.de">Florian Krause</a></strong>
 <br/>
-Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 01 Apr 2020
+Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 20 Aug 2020
 </p>
 </footer>
 </body>

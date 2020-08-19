@@ -1,28 +1,11 @@
 ---
 Title: Markdown Demo
 Description: An example page to showcase StuffPages
-Author: Florian Krause
 ---
 
 **Table of Contents:**
 
-- [Introduction](#introduction)
-- [Headers](#headers)
-- [Emphasis](#emphasis)
-- [Lists](#lists)
-- [Links](#links)
-- [Images](#images)
-- [Code and Syntax Highlighting](#code-and-syntax-highlighting)
-- [Tables](#tables)
-- [Blockquotes](#blockquotes)
-- [Horizontal Rules](#horizontal-rules)
-- [Line Breaks](#line-breaks)
-- [Footnotes](#footnotes)
-- [Definition Lists](#definition-lists)
-- [Task Lists](#task-lists)
-- [Emoji](#emoji)
-- [Inline HTML](#inline-html)
-- [Extensions](#extensions)
+[TOC]
 
 
 # Introduction
@@ -397,7 +380,6 @@ Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include 
 
 Footnotes will be shown at the bottom of the page, or (if present) at this marker:
 
-///Footnotes Go Here///
 
 [^1]: This is a footnote content.
 [^@#$%]: A footnote on the label: "@#$%".

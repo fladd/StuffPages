@@ -1,12 +1,12 @@
-Introduction 
-============ 
+Introduction
+============
  
 I created _StuffPages_ as a quick way to publish simple web pages on my web server. Basically, it takes Markdown files from a specified directory, turns them into CSS-styeld HTML files, and saves the output in another specified directory. 
 
 Have a look at some [examples](https://fladd.github.io/StuffPages)!
 
-Installation 
-============ 
+Installation
+============
  
 1. Make sure [Python 3][] is installed 
 
@@ -19,8 +19,8 @@ Installation
     ```
     (replace X.X.X with latest release version)
  
-Usage 
-===== 
+Usage
+=====
  
 1. Initialize StuffPages within the directory that contains the Markdown files:
     

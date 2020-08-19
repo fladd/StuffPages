@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Markdown Demo</title>
-<meta content="Florian Krause" name="author"/>
+<meta content="Unknown" name="author"/>
 <meta content="An example page to showcase StuffPages" name="description"/>
 <link href="../_resources/_stuffpages/styles/default.css" media="screen" rel="stylesheet"/>
 </head>
@@ -16,10 +16,32 @@
 <h1>Markdown Demo</h1>
 <p>An example page to showcase StuffPages</p>
 </header>
+<main>
 <p><strong>Table of Contents:</strong></p>
+<div class="toc">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#headers">Headers</a></li>
+<li><a href="#h1">H1</a><ul>
+<li><a href="#h2">H2</a><ul>
+<li><a href="#h3">H3</a><ul>
+<li><a href="#h4">H4</a><ul>
+<li><a href="#h5">H5</a><ul>
+<li><a href="#h6">H6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#alt-h1">Alt-H1</a><ul>
+<li><a href="#alt-h2">Alt-H2</a></li>
+</ul>
+</li>
 <li><a href="#emphasis">Emphasis</a></li>
 <li><a href="#lists">Lists</a></li>
 <li><a href="#links">Links</a></li>
@@ -36,10 +58,11 @@
 <li><a href="#inline-html">Inline HTML</a></li>
 <li><a href="#extensions">Extensions</a></li>
 </ul>
+</div>
 <h1 id="introduction">Introduction <a class="headerlink" href="#introduction" title="Permanent link">#</a></h1>
 <p>This document has been adatpted from  <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a>.</p>
 <h1 id="headers">Headers <a class="headerlink" href="#headers" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span># H1
+<div class="highlight"><pre><span></span><code># H1
 ## H2
 ### H3
 #### H4
@@ -53,7 +76,7 @@ Alt-H1
 
 Alt-H2
 ------
-</pre></div>
+</code></pre></div>
 <h1 id="h1">H1 <a class="headerlink" href="#h1" title="Permanent link">#</a></h1>
 <h2 id="h2">H2 <a class="headerlink" href="#h2" title="Permanent link">#</a></h2>
 <h3 id="h3">H3 <a class="headerlink" href="#h3" title="Permanent link">#</a></h3>
@@ -64,21 +87,21 @@ Alt-H2
 <h1 id="alt-h1">Alt-H1 <a class="headerlink" href="#alt-h1" title="Permanent link">#</a></h1>
 <h2 id="alt-h2">Alt-H2 <a class="headerlink" href="#alt-h2" title="Permanent link">#</a></h2>
 <h1 id="emphasis">Emphasis <a class="headerlink" href="#emphasis" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Emphasis, aka italics, with *asterisks* or _underscores_.
+<div class="highlight"><pre><span></span><code>Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 Combined emphasis with **asterisks and _underscores_**.
 
 Strikethrough uses two tildes. ~~Scratch this.~~
-</pre></div>
+</code></pre></div>
 <p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
 <p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
 <p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
 <p>Strikethrough uses two tildes. <del>Scratch this.</del></p>
 <h1 id="lists">Lists <a class="headerlink" href="#lists" title="Permanent link">#</a></h1>
 <p>(In this example, leading and trailing spaces are shown with with dots: ⋅)</p>
-<div class="codehilite"><pre><span></span>Ordered list:
+<div class="highlight"><pre><span></span><code>Ordered list:
 
 1. First ordered list item
 2. Another item
@@ -98,7 +121,7 @@ Unordered list:
 * Unordered list can use asterisks
 - Or minuses
 + Or pluses
-</pre></div>
+</code></pre></div>
 <p>Ordered list:</p>
 <ol>
 <li>First ordered list item</li>
@@ -126,7 +149,7 @@ To have a line break without a paragraph, you will need to use two trailing spac
 </ul>
 <h1 id="links">Links <a class="headerlink" href="#links" title="Permanent link">#</a></h1>
 <p>There are two ways to create links.</p>
-<div class="codehilite"><pre><span></span>[I'm an inline-style link](https://www.google.com)
+<div class="highlight"><pre><span></span><code>[I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
@@ -145,7 +168,7 @@ Also, plain URLs are automatically turned into links: http://python.org.
 [arbitrary case-insensitive reference text]: https://www.mozilla.org
 [1]: http://slashdot.org
 [link text itself]: http://www.reddit.com
-</pre></div>
+</code></pre></div>
 <p><a href="https://www.google.com">I'm an inline-style link</a></p>
 <p><a href="https://www.google.com" title="Google's Homepage">I'm an inline-style link with title</a></p>
 <p><a href="https://www.mozilla.org">I'm a reference-style link</a></p>
@@ -155,7 +178,7 @@ Also, plain URLs are automatically turned into links: http://python.org.
 <p>Some text to show that the reference links can follow later.</p>
 <p>Also, plain URLs are automatically turned into links: <a href="http://python.org">http://python.org</a>.</p>
 <h1 id="images">Images <a class="headerlink" href="#images" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Here's a logo (hover to see the title text):
+<div class="highlight"><pre><span></span><code>Here's a logo (hover to see the title text):
 
 Inline-style:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
@@ -168,7 +191,7 @@ Reference-style:
 Large images will be scaled to fit on the screen:
 
 ![Testcard](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/FuBK_testcard_vectorized.svg/2000px-FuBK_testcard_vectorized.svg.png)
-</pre></div>
+</code></pre></div>
 <p>Here's a logo (hover to see the title text):</p>
 <p>Inline-style: <img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 1"/></p>
 <p>Reference-style: <img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 2"/> </p>
@@ -176,11 +199,11 @@ Large images will be scaled to fit on the screen:
 <p><img alt="Testcard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/FuBK_testcard_vectorized.svg/2000px-FuBK_testcard_vectorized.svg.png"/></p>
 <h1 id="code-and-syntax-highlighting">Code and Syntax Highlighting <a class="headerlink" href="#code-and-syntax-highlighting" title="Permanent link">#</a></h1>
 <p>Code blocks are part of the Markdown spec, but syntax highlighting isn't. However, many renderers -- like Github's and <em>StuffPages</em> -- support syntax highlighting. Which languages are supported and how those language names should be written will vary from renderer to renderer. <em>StuffPages</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, see <a href="http://pygments.org/languages/">here</a>.</p>
-<div class="codehilite"><pre><span></span>Inline `code` has `back-ticks around` it.
-</pre></div>
+<div class="highlight"><pre><span></span><code>Inline `code` has `back-ticks around` it.
+</code></pre></div>
 <p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
 <p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks -- they're easier and only they support syntax highlighting.</p>
-<div class="codehilite"><pre><span></span>```javascript
+<div class="highlight"><pre><span></span><code>```javascript
 var s = "JavaScript syntax highlighting";
 alert(s);
 ```
@@ -194,19 +217,19 @@ print s
 No language indicated, so no syntax highlighting.
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 ```
-</pre></div>
-<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">"JavaScript syntax highlighting"</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">"JavaScript syntax highlighting"</span><span class="p">;</span>
 <span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-</pre></div>
-<div class="codehilite"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"Python syntax highlighting"</span>
-<span class="k">print</span> <span class="n">s</span>
-</pre></div>
-<div class="codehilite"><pre><span></span>No language indicated, so no syntax highlighting in Markdown Here (varies on Github).
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s2">"Python syntax highlighting"</span>
+<span class="nb">print</span> <span class="n">s</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>No language indicated, so no syntax highlighting in Markdown Here (varies on Github).
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
-</pre></div>
+</code></pre></div>
 <h1 id="tables">Tables <a class="headerlink" href="#tables" title="Permanent link">#</a></h1>
 <p>Tables aren't part of the core Markdown spec, but they are part of GFM and <em>StuffPages</em> supports them. They are an easy way of adding tables to your page -- a task that would otherwise require copy-pasting from another application.</p>
-<div class="codehilite"><pre><span></span>Colons can be used to align columns.
+<div class="highlight"><pre><span></span><code>Colons can be used to align columns.
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -220,7 +243,7 @@ Markdown | Less | Pretty
 --- | --- | ---
 *Still* | `renders` | **nicely**
 1 | 2 | 3
-</pre></div>
+</code></pre></div>
 <p>Colons can be used to align columns.</p>
 <table>
 <thead>
@@ -271,13 +294,13 @@ Markdown | Less | Pretty
 </tbody>
 </table>
 <h1 id="blockquotes">Blockquotes <a class="headerlink" href="#blockquotes" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>&gt; Blockquotes are very handy in email to emulate reply text.
+<div class="highlight"><pre><span></span><code>&gt; Blockquotes are very handy in email to emulate reply text.
 &gt; This line is part of the same quote.
 
 Quote break.
 
 &gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
-</pre></div>
+</code></pre></div>
 <blockquote>
 Blockquotes are very handy in email to emulate reply text.
 This line is part of the same quote.
@@ -287,7 +310,7 @@ This line is part of the same quote.
 <p>This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
 </blockquote>
 <h1 id="horizontal-rules">Horizontal Rules <a class="headerlink" href="#horizontal-rules" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Three or more...
+<div class="highlight"><pre><span></span><code>Three or more...
 
 ---
 
@@ -300,7 +323,7 @@ Asterisks
 ___
 
 Underscores
-</pre></div>
+</code></pre></div>
 <p>Three or more...</p>
 <hr/>
 <p>Hyphens</p>
@@ -311,20 +334,20 @@ Underscores
 <h1 id="line-breaks">Line Breaks <a class="headerlink" href="#line-breaks" title="Permanent link">#</a></h1>
 <p>My basic recommendation for learning how line breaks work is to experiment and discover -- hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You'll soon learn to get what you want.</p>
 <p>Here are some things to try out:</p>
-<div class="codehilite"><pre><span></span>Here's a line for us to start with.
+<div class="highlight"><pre><span></span><code>Here's a line for us to start with.
 
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
 
 This line is also a separate paragraph, but...
 This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
-</pre></div>
+</code></pre></div>
 <p>Here's a line for us to start with.</p>
 <p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
 This line is also begins a separate paragraph, but...
 This line is only separated by a single newline, so it's a separate line in the <em>same paragraph</em>.
 <p>(Technical note: <em>StuffPages</em> uses GFM line breaks, so there's no need to use MD's two-space line breaks.)</p>
 <h1 id="footnotes">Footnotes <a class="headerlink" href="#footnotes" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include Markdown itself[^3].
+<div class="highlight"><pre><span></span><code>Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include Markdown itself[^3].
 
 Footnotes will be shown at the bottom of the page, or (if present) at this marker:
 
@@ -343,39 +366,17 @@ Footnotes will be shown at the bottom of the page, or (if present) at this marke
         a code block
 
     A final paragraph.
-</pre></div>
+</code></pre></div>
 <p>Footnotes<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> have a label<sup id="fnref:@#$%"><a class="footnote-ref" href="#fn:@#$%">2</a></sup> and the footnote's content, which can include Markdown itself<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 <p>Footnotes will be shown at the bottom of the page, or (if present) at this marker:</p>
-<div class="footnote">
-<hr/>
-<ol>
-<li id="fn:1">
-<p>This is a footnote content. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩︎</a></p>
-</li>
-<li id="fn:@#$%">
-<p>A footnote on the label: "@#$%". <a class="footnote-backref" href="#fnref:@#$%" title="Jump back to footnote 2 in the text">↩︎</a></p>
-</li>
-<li id="fn:3">
-<p>The first paragraph of the definition.</p>
-<p>Paragraph two of the definition.</p>
-<blockquote>
-A blockquote with
-multiple lines.
-</blockquote>
-<div class="codehilite"><pre><span></span>a code block
-</pre></div>
-<p>A final paragraph. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩︎</a></p>
-</li>
-</ol>
-</div>
 <h1 id="definition-lists">Definition Lists <a class="headerlink" href="#definition-lists" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Apple
+<div class="highlight"><pre><span></span><code>Apple
 :   Pomaceous fruit of plants of the genus Malus in 
     the family Rosaceae.
 
 Orange
 :   The fruit of an evergreen tree of the genus Citrus.
-</pre></div>
+</code></pre></div>
 <dl>
 <dt>Apple</dt>
 <dd>Pomaceous fruit of plants of the genus Malus in 
@@ -391,15 +392,15 @@ the family Rosaceae.</dd>
 <li class="task-list-item"><input checked="" disabled="" type="checkbox"/> foo</li>
 </ul>
 <h1 id="emoji">Emoji <a class="headerlink" href="#emoji" title="Permanent link">#</a></h1>
-<div class="codehilite"><pre><span></span>Emojis are very useful :smile: :thumbsup:.
+<div class="highlight"><pre><span></span><code>Emojis are very useful :smile: :thumbsup:.
 
 You can also escape `:` characters to escape the emoji: \:smile:.
-</pre></div>
+</code></pre></div>
 <p>Emojis are very useful 😄 👍.</p>
 <p>You can also escape <code>:</code> characters to escape the emoji: :smile:.</p>
 <h1 id="inline-html">Inline HTML <a class="headerlink" href="#inline-html" title="Permanent link">#</a></h1>
 <p>You can also always use raw HTML in your Markdown, and it'll mostly work pretty well.</p>
-<div class="codehilite"><pre><span></span>To reboot your computer, press &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;del&lt;/kbd&gt;.
+<div class="highlight"><pre><span></span><code>To reboot your computer, press &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;del&lt;/kbd&gt;.
 
 Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &lt;u&gt;underline&lt;/u&gt; text.
 
@@ -421,7 +422,7 @@ Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &l
 &lt;figure&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/figure&gt;
-</pre></div>
+</code></pre></div>
 <p>To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.</p>
 <p>Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.</p>
 <figure>
@@ -478,11 +479,34 @@ Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &l
 </figure>
 <h1 id="extensions">Extensions <a class="headerlink" href="#extensions" title="Permanent link">#</a></h1>
 <p>You can also extend <em>StuffPages</em> with <a href="https://pythonhosted.org/Markdown/extensions/index.html">Python Markdown extensions</a>. Just install the extensions and add them to <code>extras</code> in <code>config.py</code>.</p>
+</main>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>This is a footnote content. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩︎</a></p>
+</li>
+<li id="fn:@#$%">
+<p>A footnote on the label: "@#$%". <a class="footnote-backref" href="#fnref:@#$%" title="Jump back to footnote 2 in the text">↩︎</a></p>
+</li>
+<li id="fn:3">
+<p>The first paragraph of the definition.</p>
+<p>Paragraph two of the definition.</p>
+<blockquote>
+A blockquote with
+multiple lines.
+</blockquote>
+<div class="highlight"><pre><span></span><code>a code block
+</code></pre></div>
+<p>A final paragraph. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩︎</a></p>
+</li>
+</ol>
+</div>
 <footer>
 <p>
-<strong>© <a href="http://author.com">Florian Krause</a></strong>
+<strong>© <a href="https://en.wikipedia.org/wiki/Anonymous_work">Unknown</a></strong>
 <br>
-Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 01 Apr 2020
+Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a> on 20 Aug 2020
 </br></p>
 </footer>
 </body>

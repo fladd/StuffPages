@@ -6,6 +6,7 @@ import codecs
 import fnmatch
 import importlib.util
 from glob import glob
+from string import Template
 import sys; sys.dont_write_bytecode = True
 
 from markdown import Markdown
@@ -46,14 +47,16 @@ class StuffPages:
         """
 
         self.input_dir = os.path.abspath(input_dir)
+        self.stuffpages_dir = os.path.join(self.input_dir, "_stuffpages")
 
     def _load_config(self):
         """Load local config."""
 
         try:
+            cwd = os.getcwd()
+            os.chdir(self.stuffpages_dir)
             spec = importlib.util.spec_from_file_location(
-                "module.name", os.path.join(self.input_dir, "_stuffpages",
-                                            "config.py"))
+                "module.name", os.path.join(self.stuffpages_dir, "config.py"))
             local_config = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(local_config)
             self.output_dir = local_config.output_dir
@@ -66,6 +69,7 @@ class StuffPages:
             self.breadcrumb_format = local_config.breadcrumb_format
             self.extras = local_config.extras
             self.extras_configs = local_config.extras_configs
+            os.chdir(cwd)
             return True
 
         except:
@@ -79,10 +83,10 @@ class StuffPages:
         """
 
         config_path = os.path.abspath(os.path.split(__file__)[0])
-        if os.path.exists(os.path.join(self.input_dir, "_stuffpages")):
+        if os.path.exists(self.stuffpages_dir):
             return False
         shutil.copytree(os.path.join(config_path, "_stuffpages"),
-                        os.path.join(self.input_dir, "_stuffpages"))
+                        self.stuffpages_dir)
 
         return True
 
@@ -99,8 +103,8 @@ class StuffPages:
             return None
 
         if not os.path.isabs(self.output_dir):
-            self.output_dir = os.path.abspath(os.path.join(self.input_dir,
-                                                      self.output_dir))
+            self.output_dir = os.path.abspath(os.path.join(self.stuffpages_dir,
+                                                           self.output_dir))
 
         # Find (recursively) all markdown files in directory
         matches = []
@@ -116,19 +120,24 @@ class StuffPages:
             _metas = self.defaults.copy()
             root, ext = os.path.splitext(filename)
             rel_mddir = os.path.relpath(os.path.split(root)[0], self.input_dir)
-            if "norecursion" in _metas["settings"]:
-                if os.path.split(root)[0] != self.input_dir:
-                    continue
             meta_data, meta_text, main_text = split_meta(filename)
 
             # Handle meta data
             for m in meta_data.keys():
                 _metas[m] = " ".join(meta_data[m])
 
+            if "settings" in _metas and \
+                    "norecursion" in _metas["settings"]:
+                if os.path.split(root)[0] != self.input_dir:
+                    continue
+
             htmldir = os.path.join(self.output_dir,
                                    os.path.relpath(root, self.input_dir))
             if os.path.split(filename)[-1] == "index.md":
                 htmldir = os.path.split(htmldir)[0]
+
+            if "title" in _metas and _metas["title"] is None:
+                _metas["title"] = os.path.split(htmldir)[-1]
 
             outfile = os.path.join(htmldir, "index.html")
             if not os.path.exists(htmldir):
@@ -140,25 +149,21 @@ class StuffPages:
                 for line in section:
                     rtn += line + "\n"
                 rtn += '\n<!--</{0}>-->'.format(name)
-                pattern = re.compile(r"{{(.*?)}}")
-                for match in pattern.findall(rtn):
-                    if match.lower() in _metas:
-                        rtn = rtn.replace("{{" + match + "}}",
-                                          _metas[match.lower()])
+                rtn = Template(rtn).safe_substitute(_metas)
                 return rtn.rstrip("\n")
 
             head = create_section(self.html_head, "head")
 
             nav = ''
-            if not "nonav" in _metas["settings"]:
+            if "settings" in _metas and not "nonav" in _metas["settings"]:
                 nav = create_section(self.html_nav, "nav")
 
             header = ''
-            if not "noheader" in _metas["settings"]:
+            if "settings" in _metas and not "noheader" in _metas["settings"]:
                 header = create_section(self.html_header, "header")
 
             footer = ''
-            if not "nofooter" in _metas["settings"]:
+            if "settings" in _metas and not "nofooter" in _metas["settings"]:
                 footer = create_section(self.html_footer, "footer")
 
             # Put everything together
@@ -177,7 +182,11 @@ class StuffPages:
 
 {3}
 
+<!--<main>-->
+
 {4}
+
+<!--</main>-->
 
 {5}
 
@@ -233,8 +242,8 @@ class StuffPages:
                             "<!--</nav>-->",
                             "<!--<header>-->",
                             "<!--</header>-->",
-                            "<!--<section>-->",
-                            "<!--</section>-->",
+                            "<!--<main>-->",
+                            "<!--</main>-->",
                             "<!--<footer>-->",
                             "<!--</footer>-->"]:
                     fixed_html[pos] = line[4:-3]
@@ -272,7 +281,8 @@ class StuffPages:
 
                 # Make absolute links relative if possible
                 if os.path.isabs(link):
-                    if "selfcontained" in _metas["settings"]:
+                    if "settings" in _metas and \
+                            "selfcontained" in _metas["settings"]:
                         # If within directory of current file
                         linkpath = os.path.normpath(os.path.join(
                             os.path.split(filename)[0], link))
@@ -292,7 +302,8 @@ class StuffPages:
                 if not os.path.isabs(link):
                     abs_link = os.path.abspath(
                         os.path.join(os.path.split(filename)[0], link))
-                    if "selfcontained" in _metas["settings"]:
+                    if "settings" in _metas and \
+                            "selfcontained" in _metas["settings"]:
                         # If outside of directory of current file
                         linkpath = os.path.normpath(os.path.join(
                             os.path.split(filename)[0], link))
@@ -323,7 +334,8 @@ class StuffPages:
                 # Other absolute links
                 if os.path.isabs(link):
                     target_dir = uuid.uuid3(uuid.NAMESPACE_URL, link).hex
-                    if "selfcontained" in _metas["settings"]:
+                    if "settings" in _metas and \
+                            "selfcontained" in _metas["settings"]:
                         to_ = os.path.join(htmldir, "_resources",
                                            target_dir,
                                            os.path.split(link)[-1])
@@ -352,7 +364,8 @@ class StuffPages:
                 else:
                     from_ = os.path.normpath(os.path.join(self.input_dir,
                                                           rel_mddir, link))
-                    if "selfcontained" in _metas["settings"]:
+                    if "settings" in _metas and \
+                            "selfcontained" in _metas["settings"]:
                         to_ = os.path.join(htmldir, "_resources", link)
                         l[tag] = os.path.join("_resources", link)
                     else:
@@ -411,19 +424,11 @@ class StuffPages:
                         pages.reverse()
                     pages_list = '<ul class="pagelisting">\n'
                     for page in pages:
-                        try:
-                            item = '<li>' + self.pagelisting_format + '</li>'
-                            p = re.compile(r"{{(.*?)}}")
-                            for m in p.findall(self.pagelisting_format):
-                                item = item.replace("{{" + m + "}}",
-                                                    page[1][m.lower()])
-                            pages_list += item.format(page[0]) + '\n'
-                        except:
-                            item = '<li><a href="{0}">{1}</a></li>'
-                            pages_list += item.format(
-                                page[0], os.path.split(page[0])[-1]) + '\n'
-
+                        item = '<li>' + self.pagelisting_format + '</li>'
+                        pages_list += Template(item).safe_substitute(
+                            page[1], LINK=page[0])
                     pages_list += "</ul>\n"
+
                     output_files[outfile]["html"] = \
                         output_files[outfile]["html"].replace("{0}\n".format(
                             match[0]), pages_list, 1)
@@ -444,18 +449,10 @@ class StuffPages:
                                         re.MULTILINE):
                     bc = '<span class="breadcrumb">~<span>/</span>'
                     for c,t in enumerate(trail):
-                        try:
-                            crumb = self.breadcrumb_format + "<span>/</span>"
-                            p = re.compile(r"{{(.*?)}}")
-                            for m in p.findall(self.breadcrumb_format):
-                                crumb = crumb.replace(
-                                    "{{" + m + "}}",
-                                    output_files[t]["metas"][m.lower()])
-                            bc += crumb.format((len(trail) - c) * '../')
-                        except:
-                            crumb = '<a href="{0}">{1}</a><span>/</span>'
-                            bc += crumb.format((len(trail) - c) * '../',
-                                               (len(trail) - c + 1) * '.')
+                        crumb = self.breadcrumb_format + "<span>/</span>"
+                        bc += Template(crumb).safe_substitute(
+                            output_files[t]["metas"],
+                            LINK=(len(trail) - c) * '../')
                     bc += '</span>'
 
                     output_files[outfile]["html"] = \
