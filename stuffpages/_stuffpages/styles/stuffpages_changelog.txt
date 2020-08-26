@@ -1,0 +1,6 @@
+- new template system (string.Template) using `$variable` notation instead of `{{variable}}`
+- switched code highlighting plugin
+- changed some config default settings
+- `output_dir` is now relative to `_stuffpages` directory
+- default theme CSS improvements and fixes
+- 4 new themes: selenized-light, selenized-dark, selenized-white, selenized-black

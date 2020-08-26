@@ -1,5 +1,6 @@
 import os
 import re
+import time
 import uuid
 import shutil
 import codecs
@@ -138,6 +139,10 @@ class StuffPages:
 
             if "title" in _metas and _metas["title"] is None:
                 _metas["title"] = os.path.split(htmldir)[-1]
+
+            if "date" in _metas and _metas["date"] is None:
+                _metas["date"] = time.strftime(
+                    "%d %B %Y", time.gmtime(os.path.getmtime(filename)))
 
             outfile = os.path.join(htmldir, "index.html")
             if not os.path.exists(htmldir):

@@ -13,6 +13,7 @@ defaults = {
     "description":  "",
     "author":       "Unknown",
     "authorlink":   "https://en.wikipedia.org/wiki/Anonymous_work",
+    "date":         None,  # None will set date to file modification date
     "style":        os.path.abspath("styles/default.css"),
     "settings":     "",
     #"favicon":     ""
@@ -49,18 +50,18 @@ html_footer = [
     '<p>',
     '<strong>&copy; <a href="$authorlink">$author</a></strong>',
     '<br />',
-    'Created with <a href="https://github.com/fladd/StuffPages">' +\
-    'StuffPages</a> on {0}'.format(date.today().strftime("%d %b %Y")),
+    'Created $date with <a href="https://github.com/fladd/StuffPages">'\
+    'StuffPages</a>',
     '</p>',
 ]
 
 # Format for each item in pages listings ([PAGES])
-# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
+# Can make use of defaults/meta data (lowercase, prefixed with $)
 # $LINK will be replaced by a (relative) link to page
 pagelisting_format = '<p><a href="$LINK">$title</a><br />$description</p>'
 
 # Format for each item in breadcrumb listings ([BREADCRUMB])
-# Can make use of defaults/meta data (lowercase, prefixed with $) and listings
+# Can make use of defaults/meta data (lowercase, prefixed with $)
 # $LINK will be replaced by (relative) link to page
 breadcrumb_format = '<a href="$LINK">$title</a>'
 
