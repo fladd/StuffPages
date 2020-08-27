@@ -278,7 +278,7 @@ Markdown | Less | Pretty
 # Blockquotes
 
 ```
-> Blockquotes are very handy in email to emulate reply text.
+> Blockquotes are very handy in email to emulate reply text.  
 > This line is part of the same quote.
 
 Quote break.
@@ -286,7 +286,7 @@ Quote break.
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 ```
 
-> Blockquotes are very handy in email to emulate reply text.
+> Blockquotes are very handy in email to emulate reply text.  
 > This line is part of the same quote.
 
 Quote break.
@@ -447,12 +447,15 @@ To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
-<figure markdown="1">
+<figure markdown="span">
 ![cat](http://i.imgur.com/NUyttbn.gif)
+
 <figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test text wrapping.</figcaption>
+
 </figure>
 
-<figure markdown="1">
+<figure markdown="span">
+
 <figcaption>**Table1**. Some numbers. And here comes a rather long description to test text wrapping.</figcaption>
 
 | Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
@@ -472,13 +475,19 @@ To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.
 
 Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 
+
 <figure markdown="1">
 ![cat](http://i.imgur.com/NUyttbn.gif)
-<figcaption>**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
+
+<figcaption markdown="1">**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test wrapping.</figcaption>
+
 </figure>
 
 <figure markdown="1">
-<figcaption>**Table1**. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
+
+<figcaption markdown="1">
+**Table1**. Some numbers. And here comes a rather long description to test wrapping.
+</figcaption>
 
 | Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | --------- |
@@ -488,7 +497,9 @@ Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.
 </figure>
 
 <figure>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/97cWlnCZpe0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </figure>
 
 # Extensions

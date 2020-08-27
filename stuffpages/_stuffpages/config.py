@@ -49,7 +49,7 @@ html_header = [
 html_footer = [
     '<p>',
     '<strong>&copy; <a href="$authorlink">$author</a></strong>',
-    '<br />',
+    '<br>',
     'Created $date with <a href="https://github.com/fladd/StuffPages">'\
     'StuffPages</a>',
     '</p>',

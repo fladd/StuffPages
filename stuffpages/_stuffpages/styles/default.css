@@ -184,22 +184,24 @@ svg:not(:root) {
 }
 
 figure {
-    margin: 0em 0em 1em;;
+    margin: 0 0 1em;
     display: block;
     width: 100%;
-    overflow: auto;
+}
+
+figure > p {
+    margin-bottom: 0.5em;
 }
 
 figcaption {
     font-size: smaller;
-    display: block;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.5em;
 }
 
 caption {
     font-size: smaller;
     text-align: left;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.5em;
 }
 
 hr {

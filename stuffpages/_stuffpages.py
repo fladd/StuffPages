@@ -202,24 +202,36 @@ class StuffPages:
             md = Markdown(extensions=['markdown.extensions.meta'] + self.extras,
                           extension_configs=self.extras_configs,
                           output_format="html5")
-            html = md.convert(content)
+            html = md.reset().convert(content)
 
             # Fix HTML output
             fixed_html = []
-            for line in html.split("\n"):
-                if line.startswith("<p><figcaption>") and \
-                        line.endswith("</figcaption></p>"):
-                    fixed_html.append(line[3:-4])
-                elif line.startswith("<p>") and \
-                        line != "<p>" and \
-                        not line.endswith("</p>"):
-                    fixed_html.append(line[3:])
-                elif line.endswith("</p>") and \
-                        line != "</p>" and \
-                        not line.startswith("<p>"):
-                    fixed_html.append(line[:-4])
-                else:
-                    fixed_html.append(line)
+            lines =html.split("\n")
+            for c, line in enumerate(lines):
+                try:
+                    if lines[c-2]  == "<!--<head>-->":
+                        line = line.replace("<p>", "")
+                    if lines[c+1] == "<!--</head>-->":
+                        line = line.replace("</p>", "")
+                except:
+                    pass
+
+                #line = line.replace("<p><figcaption>", "<figcaption>")
+                #line = line.replace("</figcaption></p>", "</figcaption>")
+                #if line.startswith("<p><figcaption>") and \
+                #        line.endswith("</figcaption></p>"):
+                #    fixed_html.append(line[3:-4])
+                #elif line.startswith("<p>") and \
+                #        line != "<p>" and \
+                #        not line.endswith("</p>"):
+                #    fixed_html.append(line[3:])
+                #elif line.endswith("</p>") and \
+                #        line != "</p>" and \
+                #        not line.startswith("<p>"):
+                #    fixed_html.append(line[:-4])
+                #else:
+                #    fixed_html.append(line)
+                fixed_html.append(line)
 
             # Fix footnotes position (if present)
             pos1 = fixed_html.index("<!--</html>-->")
@@ -330,10 +342,14 @@ class StuffPages:
                 if internal_link and link.endswith(".md"):
                     root_, file_ = os.path.split(link)
                     name_, ext_ = os.path.splitext(file_)
-                    if link.endswith("index.md"):
-                        l[tag] = os.path.join("..", root_, name_ + ".html")
+                    if os.path.split(filename)[-1] == "index.md":
+                        up = ""
                     else:
-                        l[tag] = os.path.join("..", root_, name_)
+                        up = ".."
+                    if link.endswith("index.md"):
+                        l[tag] = os.path.join(up, root_, name_ + ".html")
+                    else:
+                        l[tag] = os.path.join(up, root_, name_)
                     continue
 
                 # Other absolute links

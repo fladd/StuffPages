@@ -136,9 +136,9 @@ Unordered list:
 <li>
 <p>And another item.</p>
 <p>You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).</p>
-To have a line break without a paragraph, you will need to use two trailing spaces.<br/>
+<p>To have a line break without a paragraph, you will need to use two trailing spaces.<br/>
  Note that this line is separate, but within the same paragraph.<br/>
- (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+ (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)</p>
 </li>
 </ol>
 <p>Unordered list:</p>
@@ -294,7 +294,7 @@ Markdown | Less | Pretty
 </tbody>
 </table>
 <h1 id="blockquotes">Blockquotes <a class="headerlink" href="#blockquotes" title="Permanent link">#</a></h1>
-<div class="highlight"><pre><span></span><code>&gt; Blockquotes are very handy in email to emulate reply text.
+<div class="highlight"><pre><span></span><code>&gt; Blockquotes are very handy in email to emulate reply text.  
 &gt; This line is part of the same quote.
 
 Quote break.
@@ -302,8 +302,8 @@ Quote break.
 &gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
 </code></pre></div>
 <blockquote>
-Blockquotes are very handy in email to emulate reply text.
-This line is part of the same quote.
+<p>Blockquotes are very handy in email to emulate reply text.<br/>
+This line is part of the same quote.</p>
 </blockquote>
 <p>Quote break.</p>
 <blockquote>
@@ -343,8 +343,8 @@ This line is only separated by a single newline, so it's a separate line in the 
 </code></pre></div>
 <p>Here's a line for us to start with.</p>
 <p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
-This line is also begins a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the <em>same paragraph</em>.
+<p>This line is also begins a separate paragraph, but...
+This line is only separated by a single newline, so it's a separate line in the <em>same paragraph</em>.</p>
 <p>(Technical note: <em>StuffPages</em> uses GFM line breaks, so there's no need to use MD's two-space line breaks.)</p>
 <h1 id="footnotes">Footnotes <a class="headerlink" href="#footnotes" title="Permanent link">#</a></h1>
 <div class="highlight"><pre><span></span><code>Footnotes[^1] have a label[^@#$%] and the footnote's content, which can include Markdown itself[^3].
@@ -404,12 +404,15 @@ You can also escape `:` characters to escape the emoji: \:smile:.
 
 Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &lt;u&gt;underline&lt;/u&gt; text.
 
-&lt;figure markdown="1"&gt;
+&lt;figure markdown="span"&gt;
 ![cat](http://i.imgur.com/NUyttbn.gif)
+
 &lt;figcaption&gt;**Figure 1.** Heavy breathing cat. And here comes a rather long descrition to test text wrapping.&lt;/figcaption&gt;
+
 &lt;/figure&gt;
 
-&lt;figure markdown="1"&gt;
+&lt;figure markdown="span"&gt;
+
 &lt;figcaption&gt;**Table1**. Some numbers. And here comes a rather long description to test text wrapping.&lt;/figcaption&gt;
 
 | Header 1 | Header 2 | Header 3 | Header 4 | Header 5 | Header 6 | Header 7 | Header 8 | Header 9 | Header 10 |
@@ -426,11 +429,15 @@ Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &l
 <p>To reboot your computer, press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.</p>
 <p>Use <sub>sub</sub>sript or <sup>super</sup>script and <u>underline</u> text.</p>
 <figure>
-<img alt="cat" src="http://i.imgur.com/NUyttbn.gif"/>
-<figcaption><strong>Figure 1.</strong> Heavy breathing cat. And here comes a rather long descrition to test wrapping and stuff.</figcaption>
+<p><img alt="cat" src="http://i.imgur.com/NUyttbn.gif"/></p>
+<figcaption>
+<p><strong>Figure 1.</strong> Heavy breathing cat. And here comes a rather long descrition to test wrapping.</p>
+</figcaption>
 </figure>
 <figure>
-<figcaption><strong>Table1</strong>. Some numbers. And here comes a rather long description to test wrapping and stuff.</figcaption>
+<figcaption>
+<p><strong>Table1</strong>. Some numbers. And here comes a rather long description to test wrapping.</p>
+</figcaption>
 <table>
 <thead>
 <tr>
@@ -493,8 +500,8 @@ Use &lt;sub&gt;sub&lt;/sub&gt;sript or &lt;sup&gt;super&lt;/sup&gt;script and &l
 <p>The first paragraph of the definition.</p>
 <p>Paragraph two of the definition.</p>
 <blockquote>
-A blockquote with
-multiple lines.
+<p>A blockquote with
+multiple lines.</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>a code block
 </code></pre></div>
@@ -505,9 +512,9 @@ multiple lines.
 <footer>
 <p>
 <strong>© <a href="https://en.wikipedia.org/wiki/Anonymous_work">Unknown</a></strong>
-<br>
-Created 19 August 2020 with <a href="https://github.com/fladd/StuffPages">StuffPages</a>
-</br></p>
+<br/>
+Created 27 August 2020 with <a href="https://github.com/fladd/StuffPages">StuffPages</a>
+</p>
 </footer>
 </body>
 </html>
