@@ -1,5 +1,4 @@
 import os
-from datetime import date
 
 import pymdownx.emoji
 
@@ -13,7 +12,7 @@ defaults = {
     "description":  "",
     "author":       "Unknown",
     "authorlink":   "https://en.wikipedia.org/wiki/Anonymous_work",
-    "date":         None,  # None will set date to file modification date
+    "date":         "",
     "style":        os.path.abspath("styles/default.css"),
     "settings":     "",
     #"favicon":     ""
@@ -50,8 +49,10 @@ html_footer = [
     '<p>',
     '<strong>&copy; <a href="$authorlink">$author</a></strong>',
     '<br>',
-    'Created $date with <a href="https://github.com/fladd/StuffPages">'\
-    'StuffPages</a>',
+    '<em>$date</em>',
+    '</p>',
+    '<p>',
+    'Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a>',
     '</p>',
 ]
 

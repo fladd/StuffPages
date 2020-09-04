@@ -59,6 +59,14 @@ footer {
     margin-top: 45px;
 }
 
+footer :nth-child(1) {
+    margin-top: 0px;
+}
+
+footer :nth-last-child(1) {
+    margin-bottom: 0px;
+}
+
 h1 {
     font-size: 2em;
     font-weight: 600;
@@ -184,13 +192,9 @@ svg:not(:root) {
 }
 
 figure {
-    margin: 0 0 1em;
+    margin: 0em 0em 1em;
     display: block;
     width: 100%;
-}
-
-figure > p {
-    margin-bottom: 0.5em;
 }
 
 figcaption {
@@ -202,6 +206,10 @@ caption {
     font-size: smaller;
     text-align: left;
     margin-bottom: 0.5em;
+}
+
+figure > p, figcaption > p, caption > p {
+    margin-bottom: 0em;
 }
 
 hr {
