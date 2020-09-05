@@ -337,11 +337,11 @@ class StuffPages:
                     root_, file_ = os.path.split(link)
                     name_, ext_ = os.path.splitext(file_)
                     if os.path.split(filename)[-1] == "index.md":
-                        up = ""
+                        up = "."
                     else:
                         up = ".."
                     if link.endswith("index.md"):
-                        l[tag] = os.path.join(up, root_, name_ + ".html")
+                        l[tag] = os.path.join(up, root_)
                     else:
                         l[tag] = os.path.join(up, root_, name_)
                     continue
