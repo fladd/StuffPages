@@ -27,7 +27,7 @@ html_head = [
     '<meta name="author" content="$author">',
     '<meta name="description" content="$description">',
     '<link href="$style" rel="stylesheet" media="screen">',
-    #'<link rel="icon" href="{{favicon}}" type="image/x-icon" />'
+    #'<link rel="icon" href="$favicon" type="image/x-icon" />'
 ]
 
 # HTML navigation
