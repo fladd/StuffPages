@@ -287,7 +287,7 @@ class StuffPages:
                 internal_link = False
 
                 # Skip web links
-                if link.startswith("#") or ":" in link:
+                if link.startswith(("#", "mailto:", "tel:")) or "://" in link:
                     continue
 
                 # Make absolute links relative if possible
@@ -341,9 +341,10 @@ class StuffPages:
                     else:
                         up = ".."
                     if link.endswith("index.md"):
-                        l[tag] = os.path.join(up, root_)
+                        l[tag] = os.path.join(up, root_).replace('\\', '/')
                     else:
-                        l[tag] = os.path.join(up, root_, name_)
+                        l[tag] = os.path.join(
+                            up, root_, name_).replace('\\', '/')
                     continue
 
                 # Other absolute links
@@ -354,9 +355,9 @@ class StuffPages:
                         to_ = os.path.join(htmldir, "_resources",
                                            target_dir,
                                            os.path.split(link)[-1])
-                        l[tag] = os.path.join("_resources",
-                                              target_dir,
-                                              os.path.split(link)[-1])
+                        l[tag] = os.path.join(
+                            "_resources", target_dir,
+                            os.path.split(link)[-1]).replace('\\', '/')
                     else:
                         to_ = os.path.join(self.output_dir, "_resources",
                                            target_dir,
@@ -365,7 +366,7 @@ class StuffPages:
                             os.path.relpath(self.output_dir,
                                             os.path.split(outfile)[0]),
                             "_resources", target_dir,
-                            os.path.split(link)[-1])
+                            os.path.split(link)[-1]).replace('\\', '/')
 
                     if os.path.exists(link):
                         if os.path.isfile(link):
@@ -382,7 +383,8 @@ class StuffPages:
                     if "settings" in _metas and \
                             "selfcontained" in _metas["settings"]:
                         to_ = os.path.join(htmldir, "_resources", link)
-                        l[tag] = os.path.join("_resources", link)
+                        l[tag] = os.path.join(
+                            "_resources", link).replace('\\', '/')
                     else:
                         to_ = os.path.normpath(os.path.join(self.output_dir,
                                                             "_resources",
@@ -392,7 +394,7 @@ class StuffPages:
                         l[tag] = os.path.normpath(os.path.join(
                             os.path.relpath(self.output_dir,
                                             os.path.split(outfile)[0]),
-                            "_resources", rel_mddir, link))
+                            "_resources", rel_mddir, link)).replace('\\', '/')
                     if os.path.exists(from_):
                         if os.path.isfile(from_):
                             if not os.path.exists(os.path.split(to_)[0]):
@@ -441,7 +443,7 @@ class StuffPages:
                     for page in pages:
                         item = '<li>' + self.pagelisting_format + '</li>'
                         pages_list += Template(item).safe_substitute(
-                            page[1], LINK=page[0])
+                            page[1], LINK=page[0]).replace('\\', '/')
                     pages_list += "</ul>\n"
 
                     output_files[outfile]["html"] = \
