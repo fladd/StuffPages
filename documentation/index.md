@@ -2,7 +2,7 @@
 Title: StuffPages
 Description: A quick way to create simple web pages using Markdown
 Author: Florian Krause
-Authorlink: https://www.fladd.de
+Authorlink: https://www.floriankrause.org
 ---
 
 

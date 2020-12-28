@@ -52,7 +52,7 @@ html_footer = [
     '<em>$date</em>',
     '</p>',
     '<p>',
-    'Created with <a href="https://github.com/fladd/StuffPages">StuffPages</a>',
+    'Created with <a href="https://fladd.github.io/StuffPages/">StuffPages</a>',
     '</p>',
 ]
 
