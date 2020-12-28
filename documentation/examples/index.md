@@ -1,4 +1,4 @@
-Title: StuffPages examples
+Title: Examples
 Description: Some example pages created with StuffPages
 
 [PAGES Description]
