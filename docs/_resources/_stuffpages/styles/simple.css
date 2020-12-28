@@ -1,0 +1,17 @@
+body {
+    margin: 1em auto;
+    font: 1em/1.5em sans-serif;
+    max-width: 50em;
+    padding: 0 .75em;
+    overflow-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: .75em auto;
+}
+
+pre, blockquote {
+    overflow: scroll;
+}

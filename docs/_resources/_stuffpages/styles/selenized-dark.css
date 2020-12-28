@@ -1,0 +1,758 @@
+:root {
+    --bg_0: #103c48;
+    --bg_1: #184956;
+    --bg_2: #2d5b69;
+    --dim_0: #72898f;
+    --fg_0: #adbcbc;
+    --fg_1: #cad8d9;
+
+    --red: #fa5750;
+    --green: #75b938;
+    --yellow: #dbb32d;
+    --blue: #4695f7;
+    --magenta: #f275be;
+    --cyan: #41c7b9;
+    --orange: #ed8649;
+    --violet: #af88eb;
+
+    --body-color: var(--fg_0);
+    --body-background-color: var(--bg_0);
+
+    --header-border-bottom-color: var(--dim_0);
+    --footer-border-top-color: var(--dim_0);
+
+    --h1-border-bottom-color: var(--bg_1);
+    --h2-border-bottom-color: var(--bg_1);
+    --h6-color: var(--dim_0);
+
+    --a-color: var(--blue);
+    --a-visited-color: var(--violet);
+    --a-headerlink-color: var(--blue);
+    --a-headerlink-visited-color: var(--violet);
+    --a-toclink-color: var(--fg_0);
+
+    --img-background-color: var(--bg_0);
+
+    --hr-background-color: var(--bg_2);
+    --hr-border-bottom-color: var(--bg_1);
+
+    --blockquote-color: var(--dim_0);
+    --blockquote-border-left-color: var(--bg_2);
+
+    --kbd-color: var(--fg_0);
+    --kbd-background-color: var(--bg_1);
+    --kbd-border-color: var(--dim_0);
+    --kbd-box-shadow-color: var(--dim_0);
+
+    --code-background-color: var(--bg_1);
+    --code-border-color: var(--bg_2);
+
+    --pre-background-color: var(--bg_1);
+    --pre-border-color: var(--bg_2);
+
+    --table-td-border-color: var(--bg_2);
+    --table-tr-background-color: var(--bg_0);
+    --table-tr-border-top-color: var(--bg_2);
+    --table-tr-nth-child-2n-color: var(--bg_1);
+
+    --checked-radio-label-border-color: var(--dim_0);
+
+    --pygments-w-color: var(--fg_0);
+    --pygments-err-color: var(--fg_0);
+    --pygments-err-background-color: var(--red);
+    --pygments-esc-color: var(--fg_0);
+    --pygments-x-color: var(--fg_0);
+    --pygments-k-color: var(--green);
+    --pygments-kc-color: var(--cyan);
+    --pygments-kd-color: var(--cyan);
+    --pygments-kn-color: var(--orange);
+    --pygments-kp-color: var(--green);
+    --pygments-kr-color: var(--green);
+    --pygments-kt-color: var(--yellow);
+    --pygments-n-color: var(--fg_0);
+    --pygments-na-color: var(--fg_0);
+    --pygments-nb-color: var(--blue);
+    --pygments-bp-color: var(--blue);
+    --pygments-nc-color: var(--blue);
+    --pygments-no-color: var(--blue);
+    --pygments-nd-color: var(--blue);
+    --pygments-ni-color: var(--blue);
+    --pygments-ne-color: var(--blue);
+    --pygments-nf-color: var(--blue);
+    --pygments-fm-color: var(--blue);
+    --pygments-nl-color: var(--blue);
+    --pygments-nn-color: var(--blue);
+    --pygments-nx-color: var(--fg_0);
+    --pygments-py-color: var(--fg_0);
+    --pygments-nt-color: var(--blue);
+    --pygments-nv-color: var(--blue);
+    --pygments-vc-color: var(--blue);
+    --pygments-vg-color: var(--blue);
+    --pygments-vi-color: var(--blue);
+    --pygments-vm-color: var(--blue);
+    --pygments-l-color: var(--fg_0);
+    --pygments-ld-color: var(--fg_0);
+    --pygments-s-color: var(--cyan);
+    --pygments-sa-color: var(--cyan);
+    --pygments-sb-color: var(--cyan);
+    --pygments-sc-color: var(--cyan);
+    --pygments-dl-color: var(--cyan);
+    --pygments-sd-color: var(--dim_0);
+    --pygments-s2-color: var(--cyan);
+    --pygments-se-color: var(--cyan);
+    --pygments-sh-color: var(--cyan);
+    --pygments-si-color: var(--cyan);
+    --pygments-sx-color: var(--cyan);
+    --pygments-sr-color: var(--orange);
+    --pygments-s1-color: var(--cyan);
+    --pygments-ss-color: var(--cyan);
+    --pygments-m-color: var(--cyan);
+    --pygments-mb-color: var(--cyan);
+    --pygments-mf-color: var(--cyan);
+    --pygments-mh-color: var(--cyan);
+    --pygments-mi-color: var(--cyan);
+    --pygments-il-color: var(--cyan);
+    --pygments-mo-color: var(--cyan);
+    --pygments-o-color: var(--dim_0);
+    --pygments-ow-color: var(--green);
+    --pygments-p-color: var(--fg_0);
+    --pygments-c-color: var(--dim_0);
+    --pygments-c-font-style: italic;
+    --pygments-cm-color: var(--dim_0);
+    --pygments-cm-font-style: italic;
+    --pygments-cp-color: var(--magenta);
+    --pygments-cpf-color: var(--dim_0);
+    --pygments-c1-color: var(--dim_0);
+    --pygments-c1-font-style: italic;
+    --pygments-cs-color: var(--dim_0);
+    --pygments-cs-font-style: italic;
+    --pygments-ch-color: var(--dim_0);
+    --pygments-ch-font-style: italic;
+    --pygments-g-color: var(--fg_0);
+    --pygments-gd-color: var(--red);
+    --pygments-ge-color: var(--fg_0);
+    --pygments-ge-font-style: italic;
+    --pygments-gr-color: var(--red);
+    --pygments-gh-color: var(--fg_0);
+    --pygments-gh-font-weight: bold;
+    --pygments-gi-color: var(--green);
+    --pygments-go-color: var(--fg_0);
+    --pygments-gp-color: var(--fg_0);
+    --pygments-gs-color: var(--fg_0);
+    --pygments-gs-font-weight: bold;
+    --pygments-gu-color: var(--fg_0);
+    --pygments-gu-text-decoration: underline;
+    --pygments-gt-color: var(--blue);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 200px;
+    max-width: 934px;
+    margin: 0 auto;
+    padding: 10px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    color: var(--body-color);
+    background: var(--body-background-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+header {
+    font-size: larger;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid var(--header-border-bottom-color);
+    padding-top: 15px;
+    padding-bottom: 25px;
+    margin-bottom: 45px;
+}
+
+header :nth-child(1) {
+    margin-top: 0px;
+}
+
+header :nth-last-child(1) {
+    margin-bottom: 0px;
+}
+
+header h1, h2 {
+    padding-bottom: 0px;
+    border-bottom: 0px;
+}
+
+main {
+    margin-top : 45px;
+    margin-bottom: 45px;
+}
+
+footer h1, h2 {
+    padding-bottom: 0px;
+    border-bottom: 0px;
+}
+
+footer {
+    font-size: smaller;
+    font-weight: 300;
+    text-align: center;
+    border-top: 1px solid var(--footer-border-top-color);
+    padding-top: 25px;
+    padding-bottom: 15px;
+    margin-top: 45px;
+}
+
+footer :nth-child(1) {
+    margin-top: 0px;
+}
+
+footer :nth-last-child(1) {
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 0.67em 0;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--h1-border-bottom-color);
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--h2-border-bottom-color);
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--h6-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    color: var(--a-color);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--a-visited-color);
+}
+
+a.headerlink {
+    color: var(--a-headerlink-color);
+    font-size: smaller;
+    font-weight: 300;
+    opacity: 0;
+    /*margin-left: 0.3em;*/
+}
+
+a.headerlink:visited {
+    color: var(--a-headerlink-visited-color);
+}
+
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink {
+    opacity: 1;
+}
+
+a.headerlink:focus {
+    opacity: 1;
+}
+
+a.toclink {
+    color: var(--a-toclink-color);
+    text-decoration: none;
+}
+
+h1:hover > a.toclink,
+h2:hover > a.toclink,
+h3:hover > a.toclink,
+h4:hover > a.toclink,
+h5:hover > a.toclink,
+h6:hover > a.toclink {
+    text-decoration: none;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+    text-decoration: underline;
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 600;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: var(--img-background-color);
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 0em 0em 1em;
+    display: block;
+    width: 100%;
+}
+
+figcaption {
+    font-size: smaller;
+    margin-bottom: 0.5em;
+}
+
+caption {
+    font-size: smaller;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+figure > p, figcaption > p, caption > p {
+    margin-bottom: 0em;
+}
+
+hr {
+    box-sizing: content-box;
+    overflow: hidden;
+    height: 0.25em;
+    padding: 0;
+    margin: 1.5em 0;
+    background: transparent;
+    background-color: var(--hr-background-color);
+    border: 0;
+    border-bottom: 1px solid var(--hr-border-bottom-color);
+}
+
+hr::before {
+    display: table;
+    content: "";
+}
+
+hr::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+input {
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+}
+
+blockquote {
+    margin: 0;
+    padding: 0 1em;
+    color: var(--blockquote-color);
+    border-left: 0.25em solid var(--blockquote-border-left-color);
+}
+
+blockquote>:first-child {
+    margin-top: 0;
+}
+
+blockquote>:last-child {
+    margin-bottom: 0;
+}
+
+ul,
+ol {
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+ol ol,
+ul ol {
+    list-style-type: lower-roman;
+}
+
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+    list-style-type: lower-alpha;
+}
+
+dd {
+    margin-left: 0;
+}
+
+code,
+kbd,
+pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 1.176em;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    word-wrap: normal;
+}
+
+kbd {
+    display: inline-block;
+    padding: 0.273em 0.455em;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.688em;
+    line-height: 0.91em;
+    color: var(--kbd-color);
+    vertical-align: middle;
+    background-color: var(--kbd-background-color);
+    border: solid 1px var(--kbd-border-color);
+    border-bottom-color: var(--kbd-border-bottom-color);
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 var(--kbd-box-shadow-color);
+}
+
+code {
+    padding: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 85%;
+    background-color: var(--code-background-color);
+    border-radius: 3px;
+}
+
+code::before,
+code::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+}
+
+table tr:nth-child(2n) code {
+    border: solid 1px var(--code-border-color);
+}
+
+pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+}
+
+pre {
+    padding: 1.176em;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: var(--pre-background-color);
+    border-radius: 3px;
+    margin-bottom: 1.176em;
+}
+
+table tr:nth-child(2n) pre {
+    border: solid 1px var(--pre-border-color);
+}
+
+table tr:nth-child(2n) pre code,
+pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+
+pre code::before,
+pre code::after {
+    content: normal;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li>p {
+    margin-top: 1em;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+dl {
+    padding: 0;
+}
+
+dl dt {
+    padding: 0;
+    margin-top: 1em;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+dl dd {
+    padding: 0 1em;
+    margin-bottom: 1em;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table th,
+table td {
+    padding: 0.375em 0.8125em;
+    border: 1px solid var(--table-td-border-color);
+}
+
+table tr {
+    background-color: var(--table-tr-background-color);
+    border-top: 1px solid var(--table-tr-border-top-color);
+}
+
+table tr:nth-child(2n) {
+    background-color: var(--table-tr-nth-child-2n-color);
+}
+
+iframe {
+    max-width: 100%;
+    box-sizing: content-box;
+}
+
+.footnote hr {
+    width: 30%;
+    margin-top: 2.1em;
+    margin-bottom: 0px;
+}
+
+.footnote ol {
+    font-size: smaller;
+}
+
+.footnote-backref {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+:checked+.radio-label {
+    position: relative;
+    z-index: 1;
+    border-color: var(--checked-radio-label-border-color);
+}
+
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item+.task-list-item {
+    margin-top: 0.1875em;
+}
+
+.task-list-item input {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+}
+
+.pagelisting li p a {
+    font-weight: 600;
+}
+
+.breadcrumb {
+    font-size: smaller;
+    padding-bottom: 10px;
+}
+
+.breadcrumb span {
+    margin: 0 0.3em;
+}
+
+.breadcrumb a {
+    font-weight: 600;
+}
+
+/* Pygments */
+
+.w { color: var(--pygments-w-color) }             /* Whitespace */
+.err { color: var(--pygments-err-color);          /* Error */
+       background-color: var(--pygments-gd-background-color); }
+.esc { color: var(--pygments-esc-color) }          /* Escape */
+.x { color: var(--pygments-x-color) }             /* Other */
+
+.k { color: var(--pygments-k-color) }             /* Keyword */
+.kc { color: var(--pygments-kc-color) }           /* Keyword.Constant */
+.kd { color: var(--pygments-kd-color) }           /* Keyword.Declaration */
+.kn { color: var(--pygments-kn-color) }           /* Keyword.Namespace */
+.kp { color: var(--pygments-kp-color) }           /* Keyword.Pseudo */
+.kr { color: var(--pygments-kr-color) }           /* Keyword.Reserved */
+.kt { color: var(--pygments-kt-color) }           /* Keyword.Type */
+
+.n { color: var(--pygments-n-color)}              /* Name */
+.na { color: var(--pygments-na-color)}            /* Name.Attribute */
+.nb { color: var(--pygments-nb-color) }           /* Name.Builtin */
+.bp { color: var(--pygments-bp-color) }           /* Name.Builtin.Pseudo */
+.nc { color: var(--pygments-nc-color) }           /* Name.Class */
+.no { color: var(--pygments-no-color) }           /* Name.Constant */
+.nd { color: var(--pygments-nd-color) }           /* Name.Decorator */
+.ni { color: var(--pygments-ni-color) }           /* Name.Entity */
+.ne { color: var(--pygments-ne-color) }           /* Name.Exception */
+.nf { color: var(--pygments-nf-color) }           /* Name.Function */
+.fm { color: var(--pygments-fm-color) }           /* Name.Function.Magic */
+.nl { color: var(--pygments-nl-color) }           /* Name.Label */
+.nn { color: var(--pygments-nn-color) }           /* Name.Namespace */
+.nx { color: var(--pygments-nx-color)}            /* Name.Other */
+.py { color: var(--pygments-py-color)}            /* Name.Property */
+.nt { color: var(--pygments-nt-color) }           /* Name.Tag */
+.nv { color: var(--pygments-nv-color) }           /* Name.Variable */
+.vc { color: var(--pygments-vc-color) }           /* Name.Variable.Class */
+.vg { color: var(--pygments-vg-color) }           /* Name.Variable.Global */
+.vi { color: var(--pygments-vi-color) }           /* Name.Variable.Instance */
+.vm { color: var(--pygments-vm-color) }           /* Name.Variable.Magic */
+
+.l { color: var(--pygments-l-color)}              /* Literal */
+.ld { color: var(--pygments-ld-color)}            /* Literal.Date */
+.s { color: var(--pygments-s-color) }             /* Literal.String */
+.sa { color: var(--pygments-sa-color) }           /* Literal.String.Affix */
+.sb { color: var(--pygments-sb-color) }           /* Literal.String.Backtick */
+.sc { color: var(--pygments-sc-color) }           /* Literal.String.Char */
+.dl { color: var(--pygments-dl-color) }           /* Literal.String.Delimiter */
+.sd { color: var(--pygments-sd-color) }           /* Literal.String.Doc */
+.s2 { color: var(--pygments-s2-color) }           /* Literal.String.Double */
+.se { color: var(--pygments-se-color) }           /* Literal.String.Escape */
+.sh { color: var(--pygments-sh-color) }           /* Literal.String.Heredoc */
+.si { color: var(--pygments-si-color) }           /* Literal.String.Interpol */
+.sx { color: var(--pygments-sx-color) }           /* Literal.String.Other */
+.sr { color: var(--pygments-sr-color) }           /* Literal.String.Regex */
+.s1 { color: var(--pygments-s1-color) }           /* Literal.String.Single */
+.ss { color: var(--pygments-ss-color) }           /* Literal.String.Symbol */
+.m { color: var(--pygments-m-color) }             /* Literal.Number */
+.mb { color: var(--pygments-mb-color) }           /* Literal.Number.Bin */
+.mf { color: var(--pygments-mf-color) }           /* Literal.Number.Float */
+.mh { color: var(--pygments-mh-color) }           /* Literal.Number.Hex */
+.mi { color: var(--pygments-mi-color) }           /* Literal.Number.Integer */
+.il { color: var(--pygments-il-color) }           /* Literal.Number.Integer.Long */
+.mo { color: var(--pygments-mo-color) }           /* Literal.Number.Oct */
+
+.o { color: var(--pygments-o-color) }             /* Operator */
+.ow { color: var(--pygments-ow-color) }           /* Operator.Word */
+
+.p { color: var(--pygments-p-color)}              /* Punctuation */
+
+.c { color: var(--pygments-c-color);              /* Comment */
+     font-style: var(--pygments-c-font-style); }
+.cm { color: var(--pygments-cm-color);            /* Comment.Multiline */
+      font-style: var(--pygments-cm-font-style); }
+.cp { color: var(--pygments-cp-color) }           /* Comment.Preproc */
+.cpf { color: var(--pygments-cpf-color) }         /* Comment.PreprocFile */
+.c1 { color: var(--pygments-c1-color);            /* Comment.Single */
+      font-style: var(--pygments-c1-font-style); }
+.cs { color: var(--pygments-cs-color);            /* Comment.Special */
+      font-style: var(--pygments-cs-font-style); }
+.ch { color: var(--pygments-ch-color);            /* Comment.Hashbang */
+      font-style: var(--pygments-ch-font-style); }
+
+.g { color: var(--pygments-g-color) }             /* Generic */
+.gd { color: var(--pygments-gd-color)}            /* Generic.Deleted */
+.ge { color: var(--pygments-ge-color);            /* Generic.Emph */
+      font-style: var(--pygments--ge-font-style);}
+.gr { color: var(--pygments-gr-color)}            /* Generic.Error */
+.gh { color: var(--pygments-gh-color);            /* Generic.Heading */
+      font-weight: var(--pygments-gh-font-weight);}
+.gi { color: var(--pygments-gi-color)}            /* Generic.Inserted */
+.go { color: var(--pygments-go-color) }           /* Generic.Output */
+.gp { color: var(--pygments-gp-color) }           /* Generic.Prompt */
+.gs { color: var(--pygments-gs-color);            /* Generic.Strong */
+      font-weight: var(--pygments-gs-font-weight); }
+.gu { color: var(--pygments-gu-color);            /* Generic.Subheading */
+      text-decoration: var(--pygments-gu-text-decoration); }
+.gt { color: var(--pygments-gt-color) }           /* Generic.Traceback */
+
