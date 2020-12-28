@@ -1,6 +1,6 @@
 Title: selenized-light.css
 Description: Selenized light style
-Style: ../_stuffpages/styles/selenized-light.css
+Style: ../../_stuffpages/styles/selenized-light.css
 
 This is an example page to demonstrate the different [styles](index.md).
 

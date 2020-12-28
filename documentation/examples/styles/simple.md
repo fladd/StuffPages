@@ -1,6 +1,6 @@
 Title: simple.css
 Description: A simple style
-Style: ../_stuffpages/styles/simple.css
+Style: ../../_stuffpages/styles/simple.css
 
 This is an example page to demonstrate the different [styles](index.md).
 
