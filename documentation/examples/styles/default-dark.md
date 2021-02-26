@@ -1,5 +1,6 @@
 Title: default-dark.css
 Description: The default dark StuffPages style
+Style: ../../_stuffpages/styles/default-dark.css
 
 This is an example page to demonstrate the different [styles](index.md).
 
