@@ -5,6 +5,7 @@ Style: ../../_stuffpages/styles/simple.css
 This is an example page to demonstrate the different [styles](index.md).
 
 Here is a code box:
+
 ```python
 import math
 

@@ -4,6 +4,7 @@ Description: The default StuffPages style
 This is an example page to demonstrate the different [styles](index.md).
 
 Here is a code box:
+
 ```python
 import math
 

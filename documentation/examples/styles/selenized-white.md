@@ -5,6 +5,7 @@ Style: ../../_stuffpages/styles/selenized-white.css
 This is an example page to demonstrate the different [styles](index.md).
 
 Here is a code box:
+
 ```python
 import math
 
