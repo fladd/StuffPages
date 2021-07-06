@@ -17,10 +17,17 @@ Installation
 ============ 
  
 1. Make sure [Python 3][] is installed 
- 
-2. Download the [latest release][]
 
-3. Install with
+2. Update pip, setuptools and wheel
+
+    ```
+    pip3 install -U pip
+    pip3 install -U setuptools wheel
+    ```
+
+3. Download the [latest release][]
+
+4. Install with
    
     ```
     pip3 install StuffPages-X.X.X.zip
