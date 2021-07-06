@@ -8,11 +8,18 @@ Have a look at some [examples](https://fladd.github.io/StuffPages/examples/)!
 Installation
 ============
  
-1. Make sure [Python 3][] is installed 
+1. Make sure [Python 3][] is installed
 
-2. Download the [latest release][]
+2. Update pip, setuptools and wheel
 
-3. Install with
+    ```
+    pip install -U pip
+    pip install -U setuptools wheel
+    ```
+
+3. Download the [latest release][]
+
+4. Install with
    
     ```
     pip3 install StuffPages-X.X.X.zip
