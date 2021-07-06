@@ -19,7 +19,8 @@ setup(
     name = 'StuffPages',
     version = __version__,
     packages = ['stuffpages'],
-    package_data = {'stuffpages': ['_stuffpages/styles/*.*']},
+    package_data = {'stuffpages': ['_stuffpages/*.*',
+                                   '_stuffpages/styles/*.*']},
     entry_points = {
         'console_scripts': [
             'stuffpages = stuffpages.__main__:main'
