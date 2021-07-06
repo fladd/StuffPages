@@ -26,6 +26,7 @@ setup(
             'stuffpages = stuffpages.__main__:main'
         ]
     },
+    setup_requires = ['wheel'],
     install_requires = ['markdown',
                         'pymdown-extensions',
                         'Pygments',
