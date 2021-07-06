@@ -13,8 +13,8 @@ Installation
 2. Update pip, setuptools and wheel
 
     ```
-    pip install -U pip
-    pip install -U setuptools wheel
+    pip3 install -U pip
+    pip3 install -U setuptools wheel
     ```
 
 3. Download the [latest release][]
