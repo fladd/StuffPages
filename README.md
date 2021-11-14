@@ -5,26 +5,23 @@ I created _StuffPages_ as a quick way to publish simple web pages on my web serv
 
 Have a look at some [examples](https://fladd.github.io/StuffPages/examples/)!
 
-Installation
-============
+Installation 
+============ 
  
-1. Make sure [Python 3][] is installed
+1. Make sure [Python 3](http://www.python.org) (>=3.6) is installed 
 
-2. Update pip, setuptools and wheel
+2. Install pipx
 
     ```
-    pip3 install -U pip
-    pip3 install -U setuptools wheel
+    python3 -m pip install --user pipx
+    python3 -m pipx ensurepath
     ```
 
-3. Download the [latest release][]
-
-4. Install with
+3. Install StuffPages
    
     ```
-    pip3 install StuffPages-X.X.X.zip
+    pipx install stuffpages
     ```
-    (replace X.X.X with latest release version)
  
 Usage
 =====
