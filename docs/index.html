@@ -24,22 +24,18 @@
 <h1 id="installation">Installation <a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
 <ol>
 <li>
-<p>Make sure <a href="http://www.python.org">Python 3</a> is installed </p>
+<p>Make sure <a href="http://www.python.org">Python 3</a> (&gt;=3.6) is installed </p>
 </li>
 <li>
-<p>Update pip, setuptools and wheel</p>
-<div class="highlight"><pre><span></span><code>pip3 install -U pip
-pip3 install -U setuptools wheel
+<p>Install pipx</p>
+<div class="highlight"><pre><span></span><code>python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 </code></pre></div>
 </li>
 <li>
-<p>Download the <a href="https://github.com/fladd/StuffPages/releases/latest">latest release</a></p>
-</li>
-<li>
-<p>Install with</p>
-<p><div class="highlight"><pre><span></span><code>pip3 install StuffPages-X.X.X.zip
+<p>Install StuffPages</p>
+<div class="highlight"><pre><span></span><code>pipx install stuffpages
 </code></pre></div>
-(replace X.X.X with latest release version)</p>
 </li>
 </ol>
 <h1 id="usage">Usage <a class="headerlink" href="#usage" title="Permanent link">#</a></h1>
