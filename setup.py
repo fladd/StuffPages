@@ -22,7 +22,7 @@ setup(
     name = 'StuffPages',
     description = \
     'StuffPages - ' \
-    'A quick way to publish simple web pages',
+    'A quick way to create simple web pages using Markdown',
     author = 'Florian Krause',
     author_email = 'florian.krause@fladd.de',
     long_description=long_description,
