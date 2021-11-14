@@ -16,23 +16,20 @@ Have a look at some [examples](examples/index.md)!
 Installation 
 ============ 
  
-1. Make sure [Python 3][] is installed 
+1. Make sure [Python 3](http://www.python.org) (>=3.6) is installed 
 
-2. Update pip, setuptools and wheel
+2. Install pipx
 
     ```
-    pip3 install -U pip
-    pip3 install -U setuptools wheel
+    python3 -m pip install --user pipx
+    python3 -m pipx ensurepath
     ```
 
-3. Download the [latest release][]
-
-4. Install with
+3. Install StuffPages
    
     ```
-    pip3 install StuffPages-X.X.X.zip
+    pipx install stuffpages
     ```
-    (replace X.X.X with latest release version)
  
 Usage 
 ===== 
@@ -81,13 +78,5 @@ Each Markdown file, as well as the `html_(head|nav|header|footer)` in the config
 
 * `[TOC]` will be replaced by the table of contents
 * `[PAGES]` will be replaced by a list of pages sorted by title, prepending `!` (i.e. `[!PAGES]`) will reverse sort, and appending a defaults/meta data variable name (e.g. Description) will sort by that defaults/meta data (e.g. `[PAGES Description]`)
-* `[BREADCRUMB]` will be replaced by a breadcrumb trail of links from the current page to the parent page
-
-
-[Python 3]: http://www.python.org 
-[Markdown]: https://pythonhosted.org/Markdown/ 
-[PyMdownExtensions]: http://facelessuser.github.io/pymdown-extensions 
-[BeautifulSoup]: https://www.crummy.com/software/BeautifulSoup/
-[Pygments]: http://pygments.org 
-[latest release]: https://github.com/fladd/StuffPages/releases/latest 
+* `[BREADCRUMB]` will be replaced by a breadcrumb trail of links from the current page to the parent page 
  
