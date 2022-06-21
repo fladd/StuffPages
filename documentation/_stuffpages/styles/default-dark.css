@@ -511,8 +511,58 @@ iframe {
 }
 
 /* Pygments */
-/* Pygments */
-.hll { background-color: #ffffcc }
+
+table.highlighttable {
+    display: block;
+    width: 100%;
+    border: 0px;
+    margin-bottom: 1em;
+}
+
+table.highlighttable tr {
+    border-top: 0px;
+}
+
+.code .highlight pre {
+    margin-bottom: 0em;
+}
+
+.linenodiv pre {
+    padding: 1.176em 0em;
+    margin-bottom: 0em;
+}
+
+td.linenos {
+    color: #8b949e;
+    background-color: transparent;
+    padding: 0px;
+    border: 0px;
+}
+
+span.linenos .normal {
+    color: inherit;
+    background-color: transparent;
+    padding: 0px;
+}
+
+td.linenos .special {
+    color: #d1d1d1;
+    padding: 0px;
+}
+
+span.linenos .special {
+    color: #d1d1d1;
+    padding: 0px;
+}
+
+td.code {
+    color: inherit;
+    background-color: transparent;
+    padding: 0px;
+    border: 0px;
+    width: 100%;
+}
+.hll { background-color: #555522 }
 .c { color: #8b949e } /* Comment */
 .err {  } /* Error */
 .k { color: #ff7b72 } /* Keyword */

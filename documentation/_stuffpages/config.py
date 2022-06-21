@@ -3,6 +3,9 @@ import os
 import pymdownx.emoji
 
 
+# (Sub)directories (within input directory) to include
+include_dirs = [x[0] for x in os.walk("..")]
+
 # HTML output directory
 output_dir = "../../docs/"
 

@@ -42,6 +42,7 @@ Usage
     ```
 
 2. Adapt `/path/to/directory/_stuffpages/config.py` according to your settings: 
+    * `include_dirs` is a list of (sub)directories (within the input directory) to include
     * `output_dir` is the name of the directory that will contain the converted
       HTML files
     * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file: 
@@ -54,7 +55,6 @@ Usage
             * `nonav` for not creating a nav section
             * `noheader` for not creating a header section
             * `nofooter` for not creating a footer section
-            * `norecursion` for not considering subdirectories
             * `selfcontained` for having a _resources directory for each page
     * `html_head` is a list of lines that are injected in the final HTML output between `<head>` and `</head>`
     * `html_nav` is a list of lines that are injected in the final HTML output between `<nav>` and `</nav>`

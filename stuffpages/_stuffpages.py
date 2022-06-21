@@ -58,6 +58,8 @@ class StuffPages:
                 "module.name", os.path.join(self.stuffpages_dir, "config.py"))
             local_config = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(local_config)
+            self.include_dirs = [os.path.abspath(x) for x \
+                                 in local_config.include_dirs]
             self.output_dir = local_config.output_dir
             self.defaults = local_config.defaults
             self.html_head = local_config.html_head
@@ -108,9 +110,11 @@ class StuffPages:
         # Find (recursively) all markdown files in directory
         matches = []
         for root, dirnames, filenames in os.walk(self.input_dir):
-            for filename in fnmatch.filter(filenames, '*.md'):
-                if os.path.relpath(root, self.output_dir).startswith(".."):
-                    matches.append(os.path.join(root, filename))
+            if root in self.include_dirs:
+                if os.path.relpath(root, self.output_dir).startswith("..") or \
+                        self.output_dir not in self.include_dirs:
+                    for filename in fnmatch.filter(filenames, '*.md'):
+                        matches.append(os.path.join(root, filename))
 
         # Process each markdown file
         for filename in matches:
@@ -124,11 +128,6 @@ class StuffPages:
             # Handle meta data
             for m in meta_data.keys():
                 _metas[m] = " ".join(meta_data[m])
-
-            if "settings" in _metas and \
-                    "norecursion" in _metas["settings"]:
-                if os.path.split(root)[0] != self.input_dir:
-                    continue
 
             htmldir = os.path.join(self.output_dir,
                                    os.path.relpath(root, self.input_dir))
