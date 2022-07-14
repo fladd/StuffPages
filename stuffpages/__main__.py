@@ -12,7 +12,7 @@ def main():
 
     if len(sys.argv) not in (2, 3) or \
        sys.argv[1] not in ("init", "build"):
-        print("StuffPages - An quick way to create simple web pages using Markdown")
+        print("StuffPages - A quick way to create simple web pages using Markdown")
         print("")
         print("Usage: stuffpages <command> [<directory>]")
         print("")
@@ -31,15 +31,20 @@ def main():
             if sp.init():
                 print("Initialized StuffPages in {0}".format(directory))
             else:
-                print("Error: found _stuffpages/ in {0}! (Already initialized?)".format(directory))
+                print("ERROR: found _stuffpages/ in {0}! (Already initialized?)".format(directory))
         elif sys.argv[1] == "build":
-            pages = sp.build()
-            if pages is None:
-                print("Error: could not parse _stuffpages/config.py from {0}! (StuffPages initialized?)".format(directory))
-            else:
+            if sp.load_config():
+                if not os.path.relpath(sp.input_dir,
+                                       sp.output_dir).startswith(".."):
+                    get = input("Output directory contains input directory! Continue? (y/[n]): ")
+                    if get.lower() != "y":
+                        return
+                pages = sp.build()
                 print("Built pages from {0}:".format(directory))
                 for page in pages:
                     print(page)
+            else:
+                print("ERROR: could not parse _stuffpages/config.py from {0}! (StuffPages initialized?)".format(directory))
 
 
 if __name__ == "__main__":

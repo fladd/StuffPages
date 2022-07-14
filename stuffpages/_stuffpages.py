@@ -47,8 +47,9 @@ class StuffPages:
 
         self.input_dir = os.path.abspath(input_dir)
         self.stuffpages_dir = os.path.join(self.input_dir, "_stuffpages")
+        self._config_loaded = False
 
-    def _load_config(self):
+    def load_config(self):
         """Load local config."""
 
         try:
@@ -58,8 +59,13 @@ class StuffPages:
                 "module.name", os.path.join(self.stuffpages_dir, "config.py"))
             local_config = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(local_config)
-            self.include_dirs = [os.path.abspath(x) for x \
-                                 in local_config.include_dirs]
+            self.ignore_dirs = []
+            if hasattr(local_config, "ignore_dirs"):
+                for directory in local_config.ignore_dirs:
+                    if not os.path.isabs(directory):
+                        directory = os.path.abspath(directory)
+                    if os.path.isdir(directory):
+                        self.ignore_dirs.append(directory)
             self.output_dir = local_config.output_dir
             self.defaults = local_config.defaults
             self.html_head = local_config.html_head
@@ -71,6 +77,7 @@ class StuffPages:
             self.extras = local_config.extras
             self.extras_configs = local_config.extras_configs
             os.chdir(cwd)
+            self._config_loaded = True
             return True
 
         except:
@@ -100,8 +107,9 @@ class StuffPages:
 
         output_files = {}
 
-        if not self._load_config():
-            return None
+        if not self._config_loaded:
+            if not self.load_config():
+                return None
 
         if not os.path.isabs(self.output_dir):
             self.output_dir = os.path.abspath(os.path.join(self.stuffpages_dir,
@@ -110,11 +118,9 @@ class StuffPages:
         # Find (recursively) all markdown files in directory
         matches = []
         for root, dirnames, filenames in os.walk(self.input_dir):
-            if root in self.include_dirs:
-                if os.path.relpath(root, self.output_dir).startswith("..") or \
-                        self.output_dir not in self.include_dirs:
-                    for filename in fnmatch.filter(filenames, '*.md'):
-                        matches.append(os.path.join(root, filename))
+            if not root in self.ignore_dirs:
+                for filename in fnmatch.filter(filenames, '*.md'):
+                    matches.append(os.path.join(root, filename))
 
         # Process each markdown file
         for filename in matches:

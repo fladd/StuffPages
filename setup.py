@@ -12,7 +12,7 @@ def get_version():
     spec = importlib.util.spec_from_file_location('__meta__', module_path)
     meta = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(meta)
-    
+
     return meta.__version__
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -39,10 +39,10 @@ setup(
                                    '_stuffpages/styles/*.*']},
     python_requires=">=3.6",
     setup_requires = ['wheel'],
-    install_requires = ['markdown==3.3.4',
-                        'pymdown-extensions==9.1',
-                        'Pygments==2.10.0',
-                        'beautifulsoup4==4.10.0'],
+    install_requires = ['markdown==3.3.7',
+                        'pymdown-extensions==9.5',
+                        'Pygments==2.12.0',
+                        'beautifulsoup4==4.11.1'],
     entry_points = {
         'console_scripts': [
             'stuffpages = stuffpages.__main__:main'

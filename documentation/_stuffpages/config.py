@@ -1,13 +1,16 @@
 import os
+import glob
 
 import pymdownx.emoji
 
 
-# (Sub)directories (within input directory) to include
-include_dirs = [x[0] for x in os.walk("..")]
-
 # HTML output directory
-output_dir = "../../docs/"
+# Takes absolute path or relative to this file
+output_dir = "../../docs"
+
+# (Sub)directories to not build pages from
+# Takes absolute paths or relative to this file; not applied recursively
+ignore_dirs = glob.glob(f"{output_dir}/**/", recursive=True)
 
 # Default settings (can be overwritten by meta data)
 defaults = {

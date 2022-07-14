@@ -1,4 +1,4 @@
-Introduction
+[Introduction](Introduction)
 ============
  
 I created _StuffPages_ as a quick way to publish simple web pages on my web server. Basically, it takes Markdown files from a specified directory, turns them into CSS-styeld HTML files, and saves the output in another specified directory. 
@@ -34,8 +34,8 @@ Usage
     ```
 
 2. Adapt `/path/to/directory/_stuffpages/config.py` according to your settings: 
-    * `include_dirs` is a list of (sub)directories (within the input directory) to include
     * `output_dir` is the name of the directory that will contain the converted
+    * `ignore_dirs` is a list of (sub)directories (within the directory that contains the Markdown files) to not build pages from
       HTML files
     * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file: 
         * `title` is the default title for generated pages 
