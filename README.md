@@ -35,8 +35,9 @@ Usage
 
 2. Adapt `/path/to/directory/_stuffpages/config.py` according to your settings: 
     * `output_dir` is the name of the directory that will contain the converted
-    * `ignore_dirs` is a list of (sub)directories (within the directory that contains the Markdown files) to not build pages from
       HTML files
+    * `ignore_dirs` is a list of (sub)directories (within the directory that
+      contains the Markdown files) to not build pages from
     * `defaults` are the values to be used when nothing is set in the metadata of the Markdown file: 
         * `title` is the default title for generated pages 
         * `description` is the default description for generated pages
