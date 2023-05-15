@@ -40,7 +40,7 @@ setup(
     python_requires=">=3.6",
     setup_requires = ['wheel'],
     install_requires = ['markdown==3.3.7',
-                        'pymdown-extensions==9.5',
+                        'pymdown-extensions==10.0',
                         'Pygments==2.12.0',
                         'beautifulsoup4==4.11.1'],
     entry_points = {
