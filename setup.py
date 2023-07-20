@@ -41,7 +41,7 @@ setup(
     setup_requires = ['wheel'],
     install_requires = ['markdown==3.3.7',
                         'pymdown-extensions==9.5',
-                        'Pygments==2.12.0',
+                        'Pygments==2.15.0',
                         'beautifulsoup4==4.11.1'],
     entry_points = {
         'console_scripts': [
